@@ -50,7 +50,7 @@
 	<!-- OPEN GRAPH (FACEBOOK / WHATSAPP / LINK PREVIEW) -->
 	<meta property="og:title" content="Gemima Mansoor | Conteúdo Exclusivo VIP & Privacy">
 	<meta property="og:description" content="Gemima Mansoor – modelo e criadora de conteúdo exclusivo. Acesse ensaios, vídeos e bastidores que você não vê nas redes. Assine o Privacy por R$29,90/mês e tenha chat VIP.">
-	<meta property="og:image" content="./imgs/logo-gemima-cartao-digital-puro-v01-01.png">
+	<meta property="og:image" content="https://dcards.github.io/gemima-mansoor/imgs/logo-gemima-cartao-digital-puro-v01-01.png">
 	<meta property="og:url" content="https://dcards.github.io/gemima-mansoor/">
 	<meta property="og:type" content="website">
 	<meta property="og:locale" content="pt_BR">
@@ -60,7 +60,7 @@
 	<meta name="twitter:url" content="https://dcards.github.io/gemima-mansoor/"/>
 	<meta name="twitter:title" content="Gemima Mansoor | Conteúdo Exclusivo VIP & Privacy">
 	<meta name="twitter:description" content="Gemima Mansoor – modelo e criadora de conteúdo exclusivo. Acesse ensaios, vídeos e bastidores que você não vê nas redes. Assine o Privacy por R$29,90/mês e tenha chat VIP.">
-	<meta name="twitter:image" content="./imgs/logo-gemima-cartao-digital-puro-v01-01.png">
+	<meta name="twitter:image" content="https://dcards.github.io/gemima-mansoor/imgs/logo-gemima-cartao-digital-puro-v01-01.png">
 
 	<!-- PWA / MOBILE -->
 	<meta name="theme-color" content="#000000">
@@ -3230,7 +3230,7 @@
 			const overlayMenu = document.getElementById('overlay-menu').classList.contains('active');
 			console.log('overlayMenu = ' + overlayMenu);
 			if (overlayMenu) {
-				sendToAnalytics02(key,'Menus acessados','Card Page');
+				sendToAnalytics02(key,'Menus acessados','Card Page - Offline');
 			}
 			*/
         }
@@ -3289,7 +3289,7 @@
 							//console.log(shareAuxCount);
 							if (shareAuxCount == 1) {
 								// Registra no Analytics
-								sendToAnalytics02('Compartilhar','Menus acessados','Card Page');
+								sendToAnalytics02('Compartilhar','Menus acessados','Card Page - Offline');
 							}
 						} else {
 							shareAuxCount = 0;
@@ -3321,7 +3321,7 @@
                         });
                     }
 					// Registra no Analytics
-					sendToAnalytics02(platform,'Menu Compartilhar','Card Page');
+					sendToAnalytics02(platform,'Menu Compartilhar','Card Page - Offline');
                 });
             });
         });
@@ -3388,33 +3388,33 @@
 			*/
 			if (e.target.tagName.toLowerCase()==='a') {
 				if (e.target.title) {
-					sendToAnalytics02(e.target.title,'Ícones acessados','Card Page');
+					sendToAnalytics02(e.target.title,'Ícones acessados','Card Page - Offline');
 					console.log('Title = ' + e.target.title + ' | Tag Name = ' + e.target.tagName);
 				}
 			}
 			if (e.target.tagName.toLowerCase()==='li') {
 				if (e.target.parentElement.tagName.toLowerCase()==='ul' && e.target.parentElement.classList.contains('overlay-list')) {
 					if (e.target.textContent) {
-						sendToAnalytics02(e.target.textContent,'Menu Completo','Card Page');
+						sendToAnalytics02(e.target.textContent,'Menu Completo','Card Page - Offline');
 						console.log('Title = ' + e.target.textContent + ' | Tag Name = ' + e.target.tagName);
 					}
 				}
 			}
 			if (e.target.parentElement.tagName.toLowerCase()==='a') {
 				if (e.target.parentElement.title) {
-					sendToAnalytics02(e.target.parentElement.title,'Ícones acessados','Card Page');
+					sendToAnalytics02(e.target.parentElement.title,'Ícones acessados','Card Page - Offline');
 					console.log('Title = ' + e.target.parentElement.title + ' | Tag Name = ' + e.target.parentElement.tagName);
 				}
 			}
 			if (e.target.parentElement.tagName.toLowerCase()==='div') {
 				if (e.target.parentElement.classList.contains('logo-link')) {
-					sendToAnalytics02('Logotipo','Logotipo','Card Page');
+					sendToAnalytics02('Logotipo','Logotipo','Card Page - Offline');
 					console.log('Title = Logotipo | Tag Name = ' + e.target.parentElement.tagName);
 				}
 			}
 			if (e.target.parentElement.parentElement.tagName.toLowerCase()==='a') {
 				if (e.target.parentElement.parentElement.title) {
-					sendToAnalytics02(e.target.parentElement.parentElement.title,'Ícones acessados','Card Page');
+					sendToAnalytics02(e.target.parentElement.parentElement.title,'Ícones acessados','Card Page - Offline');
 					console.log('Title = ' + e.target.parentElement.parentElement.title + ' | Tag Name = ' + e.target.parentElement.parentElement.tagName);
 				}
 			}
@@ -3574,7 +3574,7 @@
 					e.stopPropagation();
 					handleTooltipToggle();
 					// Registra no Analytics
-					sendToAnalytics02('Foto do perfil','Menus acessados','Card Page');
+					sendToAnalytics02('Foto do perfil','Menus acessados','Card Page - Offline');
 				});
 			});
 
@@ -3767,7 +3767,7 @@
 			viewer.style.display = "flex";
 			viewerImg.src = src;
 			captionText.innerHTML = alt || "Sem legenda"; // Usa o atributo ALT como legenda
-			sendToAnalytics02(viewerImg.src,'Carrossel','Card Page');
+			sendToAnalytics02(viewerImg.src,'Carrossel','Card Page - Offline');
 		}
 
 		// Fechar ao clicar no X
@@ -3793,7 +3793,7 @@
 		async function buttonNFCclicked() {
 			//console.log("NFC: Botão clicado!");
 			// Registra no Analytics
-			sendToAnalytics02('NFC','NFC - Clicado','Card Page');
+			sendToAnalytics02('NFC','NFC - Clicado','Card Page - Offline');
 
 			const nfcStatuses = document.querySelectorAll('.nfcStatus');
 			const updateStatus = (text) => {
@@ -3806,7 +3806,7 @@
 				//alert("Este navegador ou dispositivo não suporta a escrita de NFC via Web API.");
 				updateStatus("NFC não suportado aqui.");
 				// Registra no Analytics
-				sendToAnalytics02('NFC não suportado aqui','NFC - Clicado','Card Page');
+				sendToAnalytics02('NFC não suportado aqui','NFC - Clicado','Card Page - Offline');
 				return;
 			}
 
@@ -3827,7 +3827,7 @@
 				updateStatus("Sucesso! Tag gravada.");
 				//alert("Cartão físico programado com sucesso!");
 				// Registra no Analytics
-				sendToAnalytics02('Sucesso! Tag gravada','NFC - Clicado','Card Page');
+				sendToAnalytics02('Sucesso! Tag gravada','NFC - Clicado','Card Page - Offline');
 				
 				setTimeout(() => updateStatus(""), 5000);
 			} catch (error) {
@@ -3835,11 +3835,11 @@
 				if (error.name === "NotAllowedError") {
 					updateStatus("Permissão negada pelo usuário.");
 					// Registra no Analytics
-					sendToAnalytics02('Permissão negada pelo usuário','NFC - Clicado','Card Page');
+					sendToAnalytics02('Permissão negada pelo usuário','NFC - Clicado','Card Page - Offline');
 				} else {
 					updateStatus("Erro ao gravar. Tente novamente.");
 					// Registra no Analytics
-					sendToAnalytics02('Erro ao gravar','NFC - Clicado','Card Page');
+					sendToAnalytics02('Erro ao gravar','NFC - Clicado','Card Page - Offline');
 				}
 			}
 		}
@@ -4095,7 +4095,7 @@
 			// --- FUNÇÕES ORIGINAIS (não alterar) ---
 			function openOverlay() {
 				if (overlay) overlay.classList.add('active');
-				sendToAnalytics02('Formulário','Botão','Card Page');
+				sendToAnalytics02('Formulário','Botão','Card Page - Offline');
 				window.addEventListener('message', function(event) {
 					if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
 						const idDoFormCarregado = event.data.id;
@@ -4473,7 +4473,7 @@
 					img.src = src;
 					img.alt = 'Ampliação';
 					contentDiv.appendChild(img);
-					sendToAnalytics02(img.src,'Galeria','Card Page');
+					sendToAnalytics02(img.src,'Galeria','Card Page - Offline');
 				} else if (type === 'video') {
 					const video = document.createElement('video');
 					video.controls = true;
@@ -4486,7 +4486,7 @@
 					source.type = 'video/mp4';
 					video.appendChild(source);
 					contentDiv.appendChild(video);
-					sendToAnalytics02(source.src,'Galeria','Card Page');
+					sendToAnalytics02(source.src,'Galeria','Card Page - Offline');
 				}
 				overlay.classList.add('active');
 			}
