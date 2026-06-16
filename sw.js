@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dcard-gemima-mansoor-v01-01';
+var CACHE_NAME = 'dcard-gemima-mansoor-v01-02';
 var urlsToCache = [
 	'./',
 	'./index.html',
@@ -27,6 +27,8 @@ var urlsToCache = [
 	'./webfonts/fa-solid-900.woff2',
 	'./imgs/logo-horizontal-angel-influencer-models.png',
 	'./imgs/logo-horizontal-negativo-angel-influencer-models.png',
+	'./imgs/logo-horizontal-gemima-m-mansoor.png',
+	'./imgs/logo-horizontal-negativo-gemima-m-mansoor.png',
 	'./imgs/mauricio-jun-ti-v02.png',
 	'./imgs/gemima-mansoor-qrcode.png',
 	'./imgs/gemima-m-mansoor-foto-01.jpg',
@@ -40,6 +42,8 @@ var urlsToCache = [
 	'./imgs/gemima-m-mansoor-foto-09.jpeg',
 	'./imgs/gemima-m-mansoor-foto-11.jpg',
 	'./imgs/gemima-m-mansoor-foto-12.jpg',
+	'./imgs/gemima-m-mansoor-foto-13.jpeg',
+	'./imgs/gemima-m-mansoor-foto-14.jpeg',
 	'./imgs/gemima-perfil-01.jpeg',
 	'./imgs/gemima-perfil-02.jpeg',
 	'./imgs/gemima-video-01.mp4',
@@ -48,6 +52,8 @@ var urlsToCache = [
 	'./imgs/gemima-video-02-thumb.gif',
 	'./imgs/gemima-video-03.mp4',
 	'./imgs/gemima-video-03-thumb.png',
+	'./imgs/gemima-video-04.mp4',
+	'./imgs/gemima-video-04-thumb.png',
 	'./imgs/logo-gemima-cartao-digital-puro-v01-01.png'
 ];
 self.addEventListener('install', (event) => {
