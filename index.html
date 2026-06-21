@@ -5537,5 +5537,92 @@
 			}
 		})();
 	</script>
+	<script>
+		(function() {
+			'use strict';
+		
+			// Função para extrair informações do elemento clicado
+			function getClickInfo(element) {
+				// Procura o elemento mais relevante: link ou botão
+				let target = element.closest('a, button, [onclick]');
+				if (!target) return null;
+		
+				let info = {
+					tag: target.tagName.toLowerCase(),
+					text: target.innerText ? target.innerText.trim().substring(0, 100) : '',
+					href: target.href || '',
+					id: target.id || '',
+					className: target.className || '',
+					action: target.getAttribute('onclick') || ''
+				};
+		
+				// Se o elemento for um ícone dentro de um link, tenta pegar o texto do pai
+				if (!info.text && element.parentElement) {
+					info.text = element.parentElement.innerText ? element.parentElement.innerText.trim().substring(0, 100) : '';
+				}
+		
+				// Se ainda não tiver texto, usa o title ou alt
+				if (!info.text) {
+					info.text = target.getAttribute('title') || target.getAttribute('alt') || '';
+				}
+		
+				return info;
+			}
+		
+			// Função para enviar o evento
+			function sendClickEvent(info) {
+				if (!info) return;
+		
+				// 1. Envia para o GA4 via gtag (se disponível)
+				if (typeof gtag === 'function') {
+					gtag('event', 'click', {
+						'event_category': 'Engagement',
+						'event_label': info.text || info.href || info.id,
+						'value': 1,
+						'link_url': info.href,
+						'link_text': info.text,
+						'element_id': info.id,
+						'element_class': info.className,
+						'element_tag': info.tag
+					});
+				}
+		
+				// 2. Envia para o dataLayer (GTM)
+				if (typeof dataLayer !== 'undefined') {
+					dataLayer.push({
+						'event': 'customClick',
+						'clickInfo': {
+							'tag': info.tag,
+							'text': info.text,
+							'href': info.href,
+							'id': info.id,
+							'className': info.className,
+							'action': info.action
+						}
+					});
+				}
+		
+				// 3. Opcional: usar a função existente (se desejar manter compatibilidade)
+				if (typeof sendToAnalytics02 === 'function') {
+					sendToAnalytics02(info.text || info.href || 'click', 'Clique', 'Site');
+				}
+			}
+		
+			// Listener global de cliques
+			document.addEventListener('click', function(e) {
+				// Ignora cliques em elementos que já são tratados por outros listeners (como o overlay)
+				// mas ainda assim captura tudo.
+				const info = getClickInfo(e.target);
+				if (info) {
+					// Pequeno delay para não bloquear a navegação
+					setTimeout(function() {
+						sendClickEvent(info);
+					}, 10);
+				}
+			}, true); // useCapture = true para capturar antes de propagar
+		
+			console.log('✅ Rastreamento de cliques global ativado.');
+		})();
+	</script>
 </body>
 </html>
