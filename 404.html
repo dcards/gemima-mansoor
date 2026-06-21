@@ -162,7 +162,7 @@
 		*/
 		p, li, .texto-corrido {
 			line-height: 1.5;
-			max-width: 70ch;
+			/*max-width: 70ch;*/
 		}
         /* --- CENA 3D --- */
         .scene {
@@ -379,7 +379,7 @@
             display: none; flex-direction: column; justify-content: center; align-items: center;
         }
         #overlay-menu.active { display: flex; }
-        .close-btn { position: absolute; top: 30px; right: 30px; font-size: 50px; color: #fff; cursor: pointer; }
+        .close-btn { position: absolute; top: 30px; right: 30px; font-size: 50px; color: var(--gold-primary); cursor: pointer; }
         .overlay-list { list-style: none; text-align: center; }
         .overlay-list li { color: var(--icon-color); margin: .3em; font-size: 1.3rem; cursor: pointer; /*text-transform: capitalize;*/ }
 
@@ -429,8 +429,12 @@
 		.copy-link { position: relative; }
 		.fade-wrapper {
 			/* Envolve o conteúdo rolável e aplica a máscara */
+			/*
 			-webkit-mask-image: linear-gradient(to bottom, transparent 85px, black 120px, black 100%);
 			mask-image: linear-gradient(to bottom, transparent 85px, black 120px, black 100%);
+			*/
+			-webkit-mask-image: linear-gradient(to bottom, transparent 115px, black 170px, black 100%);
+			mask-image: linear-gradient(to bottom, transparent 115px, black 170px, black 100%);
 			-webkit-mask-size: 100% 100%;
 			mask-size: 100% 100%;
 			-webkit-mask-repeat: no-repeat;
@@ -698,15 +702,15 @@
 		}
 		button.firstbutt { /*margin-right: 10px !important;*/ }
 		#fullscreenbuttons {
-			margin-top: 2em;
-			margin-bottom: 1em;
+			margin-top: 1em;
+			/*margin-bottom: 1em;*/
 			font-size: 0.8em !important;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
 			gap: .5em;
 			max-width: 100%;
-			padding: 1rem 0;
+			padding: 1em 0;
     		border-top: 1px solid var(--top-line-border);
 			border-image: linear-gradient(to right, transparent, var(--top-line-border), var(--top-line-border), var(--top-line-border), transparent) 1;
 		}
@@ -734,7 +738,7 @@
 			background: initial;
 			width: 100%;
             text-align: center;
-            margin-top: 1.5em;
+            margin-top: 1em;
             padding: 1em;
 			color: var(--mainfootertext);
 			border-top: 1px solid var(--mainfootertopborder);
@@ -845,8 +849,12 @@
         }
 		@media (max-width: 480px) {
 			.fade-wrapper {
+				/*
 				-webkit-mask-image: linear-gradient(to bottom, transparent 70px, black 120px, black 100%);
 				mask-image: linear-gradient(to bottom, transparent 70px, black 120px, black 100%);
+				*/
+				-webkit-mask-image: linear-gradient(to bottom, transparent 115px, black 170px, black 100%);
+				mask-image: linear-gradient(to bottom, transparent 115px, black 170px, black 100%);
 			}
 
 			.share-buttons.show {
@@ -1886,7 +1894,7 @@
 			--profile-border-2: var(--gold-bright);
 			--link-color: var(--gold-primary);
 			--link-bgcolor: rgba(0, 0, 0, 0.75);
-			--icon-color: var(--gold-bright);
+			--icon-color: #c99e50;
 			--newtitle-color: var(--gold-primary);
 			--menu-link-active-color: var(--ruby-passion);
 			--contacts-border-color: var(--gold-primary);
@@ -2062,8 +2070,10 @@
 		/* 8. BOTÃO NFC – Glamour tecnológico */
 		.nfc-button {
 			background: rgba(0, 0, 0, 0.8);
-			border: 2px solid var(--gold-primary);
-			color: var(--gold-bright);
+			/*border: 2px solid var(--gold-primary);*/
+			border: 1px solid #c99e50;
+			/*color: var(--gold-bright);*/
+			color: var(--icon-color);
 			font-weight: 700;
 			transition: 0.3s;
 		}
@@ -2283,7 +2293,7 @@
 			text-transform: uppercase;
 			/*border-bottom: 1px dashed #E6B17E;*/
 			border-bottom: 1px dashed #fff;
-			display: inline-block;
+			/*display: inline-block;*/
 			padding-bottom: 5px;
 			margin-bottom: 0.8em;
 		}
@@ -2518,13 +2528,562 @@
 		}
 		.faq-question.active i { transform: rotate(180deg); }
 	</style>
+	<style>
+		.nav-icons li {
+			/* Cor de fundo e borda transparente */
+			/*background-color: rgba(53, 13, 14, 0.8);*/
+			/*
+			border: 4px solid transparent;
+			border-radius: 50%;
+			*/
+			/* Posicionamento para criar o efeito de degradê na borda */
+			/*
+			position: relative;
+			background-clip: padding-box;
+			*/
+		}
+		.nav-icons li a {
+			border: 2px solid #c99e50;
+			background-color: rgba(40, 12, 9, 0.8);
+		}
+		/* Pseudo-elemento para conter o degradê da borda */
+		/*
+		.nav-icons li::before {
+			content: '';
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0;
+			z-index: -1;
+			background: linear-gradient(145deg, #e9b56a, #a36415);
+			border-radius: inherit; 
+		}
+		*/
+		/* Estilização do ícone do Font Awesome */
+		.nav-icons a i {
+			background-image: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+			transition: all 0.3s ease !important;
+		}
+		.nav-icons a:hover {
+			transform: scale(1.1) !important;
+			box-shadow: 0 0 12px rgba(229, 192, 139, 0.4) !important;
+		}
+		.nav-icons a:hover i {
+			background-image: linear-gradient(145deg, #f5d79a, #c98a2a) !important;
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+		}
+		.nav-icons a.nav-active i {
+			background-image: linear-gradient(145deg, #f5d79a, #e9b56a) !important;
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			text-shadow: 0 0 10px rgba(233, 181, 106, 0.5) !important;
+		}
+		/* 1. ÁREA DE CONTEÚDO (.text-wrapper) */
+		.text-wrapper {
+			/* Cor de fundo e borda transparente */
+			/*background: linear-gradient(135deg, rgba(48, 14, 13, 0.7), rgba(22, 10, 10, 0.7)) !important;*/
+			background: linear-gradient(135deg, rgba(48, 14, 13, 0.7), rgba(0, 0, 0, 0.7));
+			/*background: linear-gradient(145deg, #e5c08b, #8e6025) !important;*/
+			border: 1px solid #c99e50;
+			border-radius: 16px !important;
+			
+			/* Posicionamento para criar o efeito de degradê na borda */
+			position: relative;
+			background-clip: padding-box;
+		}
+		h3 {
+			font-size: clamp(1.125em, 3vw, 1.8rem);
+		}
+		/* Pseudo-elemento para conter o degradê da borda */
+		/*
+		.text-wrapper::before {
+			content: '';
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0;
+			z-index: -1;
+			background: linear-gradient(135deg, rgba(107, 47, 58, 0.7), rgba(58, 26, 30, 0.7)) !important;
+			border-radius: inherit; 
+		}
+		*/
+		.line-image {
+			position: relative;
+			text-align: center;
+		}
+		.line-image span {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			display: block;
+			text-align: center;
+			width: 100%;
+			height: 2px;
+			background: radial-gradient(circle, rgba(147, 112, 80, 0.8) 0%, rgba(147, 112, 80, 0) 95%);
+			z-index: -1;
+		}
+		.line-image span.bottom-line {
+			top: unset;
+			bottom: 30%;
+		}
+		.line-image img {
+			width: 3em;
+			height: auto;
+			border: 2px solid rgba(40, 12, 9, 0.7);
+			background-color: rgba(40, 12, 9, 0.7);
+			border-radius: 50%;
+		}
+		.text-wrapper p.bottom-text {
+			text-align: center;
+			color: #d1bd82;
+			font-size: .8em;
+		}
+		.text-wrapper p.line-image-marginbottom0 {
+			margin-bottom: 0px;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-bottom: .5em;
+		}
+		/* ============================================================
+		CSS DEFINITIVO – BORDA DEGRADÊ COM PSEUDO-ELEMENTO
+		============================================================ */
+		.text-wrapper h2 {
+			color: #d5a35e !important;
+			border-left: 4px solid #4f171a !important;
+			padding-left: 18px;
+			text-transform: uppercase;
+			font-weight: 500;
+			text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+			margin-bottom: 0.4em;
+		}
+		.text-wrapper h3 {
+			color: #d69b57 !important;
+			font-weight: 400;
+			letter-spacing: 0.06em;
+			text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+			margin-top: -0.2em;
+			margin-bottom: 1.2em;
+		}
+		.text-wrapper p {
+			color: #f5ede0;
+			line-height: 1.7;
+			text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+		}
+		.marginTop26dvh {
+			margin-top: 26dvh;
+		}
+
+		/* 3. BOTÕES DE CONTATO */
+		.contact-btn {
+			position: relative !important;
+			display: inline-flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			width: clamp(2.851rem, 10vw, 4rem) !important;
+			height: clamp(2.851rem, 10vw, 4rem) !important;
+			border-radius: 50% !important;
+			/*background: rgba(56, 14, 15, 0.3) !important;*/
+			background-color: rgba(40, 12, 9, 0.8) !important;
+			background-clip: padding-box !important;
+			border: 2px solid transparent !important;
+			transition: all 0.3s ease !important;
+			z-index: 0 !important;
+		}
+		.contact-btn::before {
+			content: '' !important;
+			position: absolute !important;
+			top: 0 !important;
+			right: 0 !important;
+			bottom: 0 !important;
+			left: 0 !important;
+			z-index: -1 !important;
+			margin: -2px !important;
+			border-radius: inherit !important;
+			/*background: linear-gradient(145deg, #e5c08b, #8e6025) !important;*/
+			background: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			pointer-events: none !important;
+			border: 2px solid rgba(40, 12, 9, 0.8);
+			/*background-color: rgba(40, 12, 9, 0.8);*/
+		}
+		.contact-btn i, .contact-container .contact-btn i {
+			background-image: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			/*
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			*/
+			font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+			color: rgba(40, 12, 9, 0.8) !important;
+		}
+		.contact-item:hover .contact-btn {
+			transform: translateY(-4px) !important;
+			box-shadow: 0 6px 18px rgba(229, 192, 139, 0.3) !important;
+		}
+		.contact-item:hover .contact-btn i {
+			background-image: linear-gradient(145deg, #f5d79a, #c98a2a) !important;
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			text-shadow: 0 0 6px #FFD966;
+		}
+		.contact-btn:hover::before {
+			border-color: var(--ruby-glow);
+		}
+
+		/* 4. BOTÕES DE REDES SOCIAIS */
+		.social-btn {
+			position: relative !important;
+			display: inline-flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			width: clamp(2.851rem, 10vw, 4rem) !important;
+			height: clamp(2.851rem, 10vw, 4rem) !important;
+			border-radius: 50% !important;
+			/*background: rgba(56, 14, 15, 0.3) !important;*/
+			background-color: rgba(40, 12, 9, 0.8) !important;
+			background-clip: padding-box !important;
+			border: 2px solid transparent !important;
+			text-decoration: none !important;
+			transition: all 0.3s ease !important;
+			z-index: 0 !important;
+		}
+		.social-btn::before {
+			content: '' !important;
+			position: absolute !important;
+			top: 0 !important;
+			right: 0 !important;
+			bottom: 0 !important;
+			left: 0 !important;
+			z-index: -1 !important;
+			margin: -2px !important;
+			border-radius: inherit !important;
+			/*background: linear-gradient(145deg, #e5c08b, #8e6025) !important;*/
+			background: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			pointer-events: none !important;
+			border: 2px solid rgba(40, 12, 9, 0.8);
+		}
+		.social-btn i {
+			/*
+			background-image: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			*/
+			/*background-image: linear-gradient(145deg, #e9b56a, #a36415) !important;*/
+			font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+			color: rgba(40, 12, 9, 0.8) !important;
+			font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+		}
+		.social-btn::before:hover {
+			border-color: var(--ruby-glow);
+		}
+		.social-btn:hover {
+			transform: scale(1.08) translateY(-4px) !important;
+			box-shadow: 0 8px 20px rgba(229, 192, 139, 0.3) !important;
+		}
+		.social-btn:hover i {
+			background-image: linear-gradient(145deg, #f5d79a, #c98a2a) !important;
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			text-shadow: 0 0 6px #FFD966;
+		}
+		.social-btn:hover::before {
+			border-color: var(--ruby-glow);
+		}
+
+		/* 5. BOTÕES DE COMPARTILHAMENTO (SHARE) */
+		.share-menu .share-item a {
+			position: relative !important;
+			display: inline-flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			width: clamp(2.851rem, 10vw, 4rem) !important;
+			height: clamp(2.851rem, 10vw, 4rem) !important;
+			border-radius: 50% !important;
+			background: rgba(56, 14, 15, 0.3) !important;
+			background-clip: padding-box !important;
+			border: 2px solid transparent !important;
+			text-decoration: none !important;
+			transition: all 0.3s ease !important;
+			z-index: 0 !important;
+		}
+		.share-menu .share-item a::before {
+			content: '' !important;
+			position: absolute !important;
+			top: 0 !important;
+			right: 0 !important;
+			bottom: 0 !important;
+			left: 0 !important;
+			z-index: -1 !important;
+			margin: -2px !important;
+			border-radius: inherit !important;
+			/*background: linear-gradient(145deg, #e5c08b, #8e6025) !important;*/
+			background: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			pointer-events: none !important;
+			border: 2px solid rgba(40, 12, 9, 0.8);
+		}
+		.share-menu .share-item a i {
+			background-image: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			/*
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			*/
+			font-size: clamp(1.5rem, 5vw, 2.5rem) !important;
+			color: rgba(40, 12, 9, 0.8) !important;
+		}
+		.share-menu .share-item a:hover {
+			transform: scale(1.1) !important;
+			box-shadow: 0 0 12px rgba(229, 192, 139, 0.3) !important;
+		}
+		.share-menu .share-item a:hover::before {
+			border-color: var(--ruby-glow);
+		}
+		.share-menu .share-item a:hover i {
+			background-image: linear-gradient(145deg, #f5d79a, #c98a2a) !important;
+			-webkit-background-clip: text !important;
+			-webkit-text-fill-color: transparent !important;
+			background-clip: text !important;
+			text-shadow: 0 0 6px #FFD966;
+		}
+
+		/* 6. SCROLL-INDICATOR */
+		.scroll-indicator {
+			display: inline-flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+			background: linear-gradient(145deg, #e9b56a, #a36415) !important;
+			border: none !important;
+			border-radius: 50% !important;
+			width: 32px !important;
+			height: 32px !important;
+			box-shadow: 0 0 0 rgba(0,0,0,0) !important;
+			transition: all 0.3s ease !important;
+			cursor: pointer !important;
+			position: absolute !important;
+			top: -0.7em !important;
+			left: 50% !important;
+			transform: translateX(-50%) !important;
+			z-index: 150 !important;
+			opacity: 0 !important;
+			visibility: hidden !important;
+		}
+		.scroll-indicator.visible {
+			opacity: 1 !important;
+			visibility: visible !important;
+		}
+		.scroll-indicator span {
+			background: transparent !important;
+			border-radius: 50% !important;
+			width: 100% !important;
+			height: 100% !important;
+			display: flex !important;
+			align-items: center !important;
+			justify-content: center !important;
+		}
+		.scroll-indicator i {
+			color: #380e0f !important;
+			font-size: 1.2em !important;
+		}
+		.scroll-indicator:hover {
+			transform: translateX(-50%) scale(1.1) !important;
+			box-shadow: 0 0 12px rgba(229, 192, 139, 0.4) !important;
+		}
+		.privacy-logo:hover path {
+			fill: #FFD966;
+			text-shadow: 0 0 6px #FFD966;
+		}
+
+		/* 7. QRCODE, BOTÃO PRINCIPAL, TOOLTIP, MODAL (mantidos) */
+		.qrcode-img {
+			border: 3px solid transparent;
+			border-image: linear-gradient(145deg, #e5c08b, #8e6025) 1;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		}
+		.qrcode-legend {
+			color: #d0a04b;
+			font-weight: 600;
+			letter-spacing: 1px;
+		}
+		.btn-form-contato {
+			background: linear-gradient(145deg, #e9b56a, #8e6025) !important;
+			border: none !important;
+			color: rgb(40, 12, 9, 1) !important;
+			font-weight: 600 !important;
+			box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4) !important;
+			transition: all 0.3s ease;
+		}
+		.btn-form-contato:hover {
+			background: linear-gradient(145deg, #f5d79a, #a36415) !important;
+			color: #f5ede0 !important;
+			transform: scale(1.02);
+			box-shadow: 0 8px 20px rgba(229, 192, 139, 0.5);
+		}
+		.btn-form-contato i {
+			color: #1a110c !important;
+		}
+		.btn-form-contato:hover i {
+			color: #f5ede0 !important;
+		}
+		a.calltoaction,
+		.mainfooter a {
+			color: #d0a04b !important;
+			transition: 0.2s;
+		}
+		a.calltoaction:hover,
+		.mainfooter a:hover {
+			color: #e9b56a !important;
+			text-shadow: 0 0 6px rgba(233, 181, 106, 0.3);
+		}
+		.tooltip-appendix {
+			/*background: linear-gradient(135deg, rgba(107, 47, 58, 0.8), rgba(58, 26, 30, 0.8)) !important;*/
+			background: linear-gradient(135deg, rgba(48, 14, 13, 0.9), rgba(22, 10, 10, 0.9)) !important;
+			border: 1px solid #c99e50;
+			/*border: 1px solid rgba(229, 192, 139, 0.5) !important;*/
+			box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.2) !important;
+		}
+		.tooltip-text .name {
+			color: #e9b56a !important;
+		}
+		.tooltip-text .role,
+		.tooltip-text .company {
+			color: #f5ede0 !important;
+		}
+		.close-trigger {
+			color: var(--gold-deep);
+		}
+		.modal-content {
+			/*background: linear-gradient(135deg, rgba(107, 47, 58, 0.9), rgba(58, 26, 30, 0.9)) !important;*/
+			background: linear-gradient(135deg, rgba(48, 14, 13, 0.95), rgba(0, 0, 0, 0.95)) !important;
+			border-top: 3px solid #c99e50 !important;
+		}
+		.modal-header h2 {
+			color: #d0a04b !important;
+		}
+		.modal-header .close {
+			color: var(--gold-primary);
+		}
+		.add-to-btn {
+			color: #1a110c !important;
+			background: linear-gradient(145deg, #e9b56a, #8e6025) !important;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+		}
+		.add-to-btn:hover {
+			background: linear-gradient(145deg, #f5d79a, #a36415) !important;
+			color: #f5ede0 !important;
+		}
+
+		.fullscreenline button {
+			background: rgba(0, 0, 0, 0.8);
+			border: 1px solid #c99e50 !important;
+			color: var(--icon-color);
+			/*
+			background: linear-gradient(145deg, #e9b56a, #8e6025) !important;
+			color: #1a110c !important;
+			*/
+            box-shadow: none;
+		}
+	</style>
+	<style>
+		/* Feature Card – elegante e alinhado à identidade visual */
+		main.content-area section.section-content ul.nopadding {
+			padding-left: 0px;
+			padding-bottom: 0px;
+		}
+		.feature-card {
+			background: rgba(0, 0, 0, 0.45);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			border: 1px solid rgba(212, 175, 55, 0.25);
+			border-radius: 20px;
+			padding: 1em;
+			margin: 1em 0;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+			transition: border-color 0.3s ease;
+		}
+		.feature-card:hover {
+			border-color: var(--gold-primary);
+		}
+		.feature-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.feature-list li {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			padding: 0.4rem 0;
+			color: #f5ede0;
+			/*font-size: 1rem;*/
+			font-weight: 400;
+			letter-spacing: 0.02em;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		}
+		.feature-list li:last-child {
+			border-bottom: none;
+		}
+		.feature-list li i {
+			color: var(--gold-primary);
+			font-size: 1.2rem;
+			/*width: 1.8rem;*/
+			text-align: left;
+			filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3));
+		}
+		/* Aprimoramento dos destaques (mj-highlight-item) */
+		.mj-highlight-item {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			padding: 1rem 1.2rem;
+			background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(154,42,42,0.15));
+			border-left: 4px solid var(--ruby-passion);
+			border-radius: 16px;
+			transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+			backdrop-filter: blur(4px);
+		}
+		.mj-highlight-item:hover {
+			transform: translateX(8px);
+			border-left-color: var(--gold-primary);
+			background: rgba(0,0,0,0.7);
+			box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+		}
+		.mj-highlight-item i {
+			color: var(--gold-primary);
+			font-size: 1.6rem;
+			width: 2.2rem;
+			text-align: center;
+			filter: drop-shadow(0 0 4px rgba(212,175,55,0.2));
+			flex-shrink: 0;
+		}
+		.mj-highlight-item p {
+			margin: 0;
+			color: #f5ede0;
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
+		.mj-highlight-item p strong {
+			color: var(--gold-bright);
+			font-weight: 600;
+		}
+		.mj-highlight-item p span {
+			color: #d0c8b8;
+		}
+	</style>
 
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
 			"@type": "Person",
-			"name": "Gemima Mansoor",
-			"alternateName": "Gemima VIP",
+			"name": "Gemima M Mansoor",
+			"alternateName": "Gemima M Mansoor | Terapeuta Corporal Integrativa",
 			"description": "Gemima M Mansoor – Terapeuta Corporal especializada em práticas integrativas, massagem tântrica, renascimento e bem-estar. Atendimento exclusivo e discreto.",
 			"image": "https://dcards.github.io/gemima-mansoor/imgs/logo-gemima-cartao-digital-puro-v01-01.png",
 			"sameAs": [
@@ -2715,9 +3274,9 @@
 			<li onclick="changeContent('SOBRE')">Sobre Gemima M Mansoor</li>
 			<li onclick="changeContent('EXPERIENCIAS')">Experiências</li>
 			<li onclick="changeContent('BENEFICIOS')">Benefícios</li>
-			<li onclick="changeContent('GALERIA')">Galeria</li>
+			<!-- li onclick="changeContent('GALERIA')">Galeria</li -->
 			<li onclick="changeContent('EXCLUSIVO')">Conteúdo Exclusivo</li>
-			<li onclick="changeContent('CONTATOS')">Contatos e Parcerias</li>
+			<li onclick="changeContent('CONTATOS')">Contatos</li>
 			<li onclick="changeContent('FAQ')">FAQ</li>
         </ul>
     </nav>
@@ -2920,15 +3479,11 @@
     <script>
         const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-		const socialMediaHTML = `
+		let socialMediaHTML = `
 			<article class="social-grid-wrapper">
 				<p>Conecte-se comigo agora:</p>
 				<article class="contact-grid-wrapper">
 					<div class="contact-container">
-						<a href="tel:+5511910883252" class="contact-item" title="Ligue - Contato">
-							<div class="contact-btn"><i class="fa-solid fa-phone"></i></div>
-							<span class="contact-label">Ligue</span>
-						</a>
 						<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="contact-item" title="WhatsApp - Contato">
 							<div class="contact-btn"><i class="fa-brands fa-whatsapp"></i></div>
 							<span class="contact-label">WhatsApp</span>
@@ -2936,14 +3491,6 @@
 						<a href="https://t.me/gemimafree?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="contact-item" title="Telegram - Contato">
 							<div class="contact-btn"><i class="fa-brands fa-telegram"></i></div>
 							<span class="contact-label">Telegram</span>
-						</a>
-						<a href="sms:+5511910883252?body=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" class="contact-item" title="SMS - Contato">
-							<div class="contact-btn"><i class="fa-solid fa-comment-sms"></i></div>
-							<span class="contact-label">SMS</span>
-						</a>
-						<a href="mailto:gemimamedeiros@gmail.com?subject=%5B%20Gemima%20M%20Mansoor%20%7C%20Agendar%20Sess%C3%A3o%20de%20Terapia%20Corporal%20%5D&body=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal." class="contact-item" title="E-mail - Contato">
-							<div class="contact-btn"><i class="fa-solid fa-envelope"></i></div>
-							<span class="contact-label">E-mail</span>
 						</a>
 						<a href="https://drive.usercontent.google.com/u/0/uc?id=19Ry0yEZJWkOIg6QB5J37hvz-tSBVljkQ&export=download" class="contact-item" title="Salvar - Contato">
 							<div class="contact-btn"><i class="fa-solid fa-address-card"></i></div>
@@ -2954,7 +3501,9 @@
 				<article class="redesSociais">
 					<p>Acesse minhas Redes Sociais</p>
 					<div class="social-container">
-						<a href="https://privacy.com.br/profile/GemimaVIP" target="_blank" class="social-btn" title="Privacy"><i class="fa-solid fa-eye-slash"></i></a>
+						<a href="https://privacy.com.br/profile/GemimaVIP" target="_blank" class="social-btn" title="Privacy">
+							<svg class="privacy-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="26.733" viewBox="0 0 24 26.733"><path d="m11.473 -0.008 0.118 -0.001q0.187 -0.001 0.374 -0.001l0.129 0C12.719 -0.009 13.325 0.008 13.941 0.119l0.119 0.02C14.711 0.249 15.335 0.424 15.96 0.634l0.091 0.03c1.635 0.554 3.064 1.522 4.32 2.69l0.078 0.073c0.156 0.147 0.3 0.3 0.439 0.462 0.073 0.085 0.15 0.167 0.227 0.25 1.893 2.103 2.891 4.998 2.894 7.804l0 0.085c-0.002 1.276 -0.211 2.522 -0.604 3.734l-0.034 0.107C22.841 17.499 21.903 19.008 20.713 20.238l-0.089 0.093C20.225 20.741 19.827 21.126 19.366 21.465l-0.122 0.097C17.56 22.906 15.434 23.681 13.307 23.921l-0.091 0.011c-1.013 0.111 -2.114 0.085 -3.117 -0.091l-0.137 -0.024c-1.113 -0.2 -2.205 -0.519 -3.214 -1.038 -0.089 -0.052 -0.089 -0.052 -0.174 -0.047 -0.047 0.061 -0.047 0.061 -0.092 0.143l-0.056 0.095 -0.06 0.104c-0.174 0.296 -0.352 0.588 -0.537 0.876 -0.174 0.272 -0.347 0.545 -0.517 0.819 -1.049 1.69 -1.049 1.69 -1.867 1.884l-0.099 0.024C2.56 26.84 1.758 26.759 1.069 26.337c-0.143 -0.109 -0.271 -0.227 -0.396 -0.356l-0.076 -0.074C0.095 25.386 -0.019 24.692 -0.015 23.997l0 -0.162c0 -0.146 0 -0.293 0 -0.439 0 -0.159 0 -0.317 0 -0.476 0 -0.31 0 -0.62 0 -0.93 0.001 -0.362 0 -0.724 0 -1.086q0 -0.97 0.001 -1.94 0.001 -0.938 0.001 -1.877a2029.228 2029.228 0 0 1 0 -2.268l0 -0.109q0 -0.377 0 -0.754 0 -0.461 0.001 -0.922 0.001 -0.235 0 -0.469c-0.004 -3.518 1.122 -6.661 3.62 -9.175l0.061 -0.061C3.937 3.06 4.215 2.809 4.515 2.574l0.081 -0.065C6.515 1.003 9.015 0.004 11.473 -0.008" fill="rgba(40, 12, 9, 0.8)"/></svg>
+						</a>
 						<a href="https://www.instagram.com/gemimaterapeuta2" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
 						<a href="https://t.me/gemimafree" target="_blank" class="social-btn" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
 					</div>
@@ -2969,23 +3518,25 @@
                     <button onclick="openFullscreen();" class="firstbutt">Abrir tela cheia</button>
                     <button onclick="closeFullscreen();" class="endbutt">Sair tela cheia</button>
                 </label>
-				<hr style="border-color: var(--top-line-border); margin: 1em 0;">
+				<!--hr style="border-color: var(--top-line-border); margin: 1em 0;"-->
 				<!-- Mini bio + link -->
-				<div style="text-align: center;">
+				<!--div style="text-align: center;">
 					<img src="./imgs/mauricio-jun-ti-v02.png" alt="Mauricio Jun" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--contacts-border-color); margin-bottom: 0.5em; object-fit: cover;">
 					<p style="font-size: 0.9em;">Criado por <strong>Mauricio Jun Handa</strong>, especialista em tecnologia e estratégias digitais.</p>
 					<p style="font-size: 0.85em;">📌 Saiba mais sobre meu trabalho: <a href="https://dcards.github.io/mauricio-jun-ti/" target="_blank" rel="noopener noreferrer" style="color: var(--call-to-action-link);" title="Mauricio Jun - Cartão Digital">dcards.github.io/mauricio-jun-ti/</a></p>
-				</div>
-                <div class="mainfooter">
-                    <footer>
-                        <p>
-                            Copyleft <i class="fab fa-creative-commons-sa"></i> 
-                            <span class="showyear"></span>
-                            <a href="https://dcards.github.io/mauricio-jun-ti/" target="_blank" title="Mauricio Jun - Cartão Digital - Rodapé"><strong>Mauricio Jun</strong></a>. Cópia autorizada!
-                        </p>
-                    </footer>
-                </div>
+				</div-->
 			</article>
+		`;
+		const footerHTML = `
+			<div class="mainfooter">
+				<footer>
+					<p>
+						Copyleft <i class="fab fa-creative-commons-sa"></i> 
+						<span class="showyear"></span>
+						Desenvolvido por <a href="https://dcards.github.io/mauricio-jun-ti/" target="_blank" title="Mauricio Jun - Cartão Digital - Rodapé"><strong>Mauricio Jun</strong></a>.
+					</p>
+				</footer>
+			</div>
 		`;
 
         const sectionsData = {
@@ -3002,40 +3553,21 @@
 			INICIO: {
 				title: "Gemima M Mansoor",
 				subtitle: "Terapia Corporal Integrativa",
-				image: "./imgs/gemima-video-03-thumb.png",
-				video: "./imgs/gemima-video-03.mp4",
+				image: "./imgs/gemima-m-mansoor-background.png",
+				video: "",
 				content: `
 							<p><strong>Bem-vindo ao espaço de cuidado e consciência corporal.</strong></p>
 							<p>Algumas experiências não são feitas para acelerar o corpo, mas para desacelerar a mente.</p>
-							<p>Meu trabalho é conduzir processos de consciência corporal, presença, expansão sensorial e reconexão com a própria essência através de técnicas integrativas que unem toque terapêutico, respiração consciente e escuta corporal.</p>
-							<p>Atendimentos exclusivos, personalizados e conduzidos com absoluto respeito, discrição e acolhimento.</p>
-							<h3 style="color: var(--newtitle-color); margin-top: 0.5em;">Destaques</h3>
-							<div class="mj-highlight-box">
-								<div class="mj-highlight-item"><span>✔</span><p>Terapia Corporal Integrativa</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Massagem Tântrica</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Massagem Nuru</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Vivências Individuais</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Vivências para Casais</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Curso VIP Personalizado</p></div>
-							</div>
-							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
-								<p>💎 Agende sua experiência personalizada</p>
-								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;">Iniciar conversa</a>
-							</div>
-							<div class="mj-cta-links">
-								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('EXPERIENCIAS'); return false;" title="Início: Chamada para - Experiências">
-									<strong>Experiências</strong>
-									<span>Conheça os serviços terapêuticos clicando no menu “Experiências”.</span>
-									<span style="color: var(--call-to-action-link); text-decoration: none;">Saiba mais</span>
-								</a>
-							</div>
+							<p>Meu trabalho é conduzir processos de consciência corporal, presença, liberação e reconexão.</p>
+							<p class="line-image line-image-marginbottom0"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
+							<p class="bottom-text">CORPO · MENTE · PRESENÇA · ESSÊNCIA</p>
 				`
 			},
 
 			SOBRE: {
 				title: "Conheça Gemima Mansoor",
 				subtitle: "Terapeuta Corporal Integrativa",
-				image: "./imgs/gemima-m-mansoor-foto-13.jpeg",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
 							<p><img src="./imgs/gemima-m-mansoor-foto-01.jpg" class="content-right-circular-image">Sou Gemima M Mansoor, terapeuta corporal com formação em Terapia Corporal, Renascimento (Rebirthing), Somatização do Trauma e especialização em Disfunções Sexuais Masculinas.</p>
@@ -3043,31 +3575,34 @@
 							
 							<p>Cada encontro é único, criado para restaurar vitalidade, reduzir tensões, ampliar a percepção corporal e proporcionar uma experiência profunda de conexão consigo mesmo ou com quem você ama.</p>
 							
-							<div style="background: rgba(0,0,0,0.4); padding: 1em; border-radius: 20px; margin: 1em 0; border-left: 4px solid var(--contacts-border-color);">
-								<ul>
-									<li>Discrição absoluta</li>
-									<li>Atendimento personalizado</li>
-									<li>Ambiente seguro e acolhedor</li>
+							<div class="feature-card">
+								<ul class="feature-list nopadding">
+									<li><i class="fas fa-check-circle"></i>Discrição absoluta</li>
+									<li><i class="fas fa-check-circle"></i>Atendimento personalizado</li>
+									<li><i class="fas fa-check-circle"></i>Ambiente seguro e acolhedor</li>
 								</ul>
 							</div>
+							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
 							<h3 style="color: var(--newtitle-color); margin-top: 0.5em;">Minha formação reúne conhecimentos em:</h3>
-							<div class="mj-highlight-box">
-								<div class="mj-highlight-item"><span>✔</span><p>Terapia Corporal</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Renascimento (<i>Rebirthing</i>)</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Somatização do Trauma</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Disfunções Sexuais Masculinas</p></div>
-								<div class="mj-highlight-item"><span>✔</span><p>Técnicas Integrativas de Presença Corporal</p></div>
-							</div>
-							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
-								<p>Deseja conhecer uma experiência personalizada?</p>
-								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;">Agendar Atendimento</a>
+							<div class="feature-card">
+								<ul class="feature-list nopadding">
+									<li><i class="fas fa-check-circle"></i><span>Terapia Corporal</span></li>
+									<li><i class="fas fa-check-circle"></i><span>Renascimento <em>(Rebirthing)</em></span></li>
+									<li><i class="fas fa-check-circle"></i><span>Somatização do Trauma</span></li>
+									<li><i class="fas fa-check-circle"></i><span>Disfunções Sexuais Masculinas</span></li>
+									<li><i class="fas fa-check-circle"></i><span>Técnicas Integrativas de Presença Corporal</span></li>
+								</ul>
 							</div>
 							<div class="mj-cta-links">
 								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('EXPERIENCIAS'); return false;" title="Sobre: Chamada para - Experiências">
-									<strong>Exclusivas. Personalizadas. Transformadoras.</strong>
-									<span>Experiências criadas para quem valoriza bem-estar, autoconhecimento e exclusividade.</span>
-									<span style="color: var(--call-to-action-link); text-decoration: none;">Conheça as experiências</span>
+									<strong>Quer conhecer os detalhes de cada experiência terapêutica?</strong>
+									<span>Valores, duração, modalidades e tudo o que você precisa saber antes de agendar.</span>
+									<span style="color: var(--call-to-action-link); text-decoration: none;">👉 Acessar o catálogo completo</span>
 								</a>
+							</div>
+							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
+								<p>Deseja conhecer uma experiência personalizada?</p>
+								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Sobre: Agendar Atendimento">Agendar Atendimento</a>
 							</div>
 				`
 			},
@@ -3075,38 +3610,49 @@
 			EXPERIENCIAS: {
 				title: "Experiências Terapêuticas",
 				subtitle: "Toque, presença e transformação",
-				image: "./imgs/gemima-m-mansoor-foto-14.jpeg",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
-							<p>Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
+							<p><img src="./imgs/gemima-m-mansoor-foto-13.jpeg" class="content-right-circular-image">Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
 							<p>Clique em cada experiência para conhecer mais detalhes, valores e duração.</p>
 							<div class="catalogo-accordion-container"></div>
-							<p>Para fazer download do catálogo, <a href="https://canva.link/b84pgyskz65k2n3" target="_blank">clique aqui</a>.
+							<p style="margin-top: 1em;">Para fazer download do catálogo, <a href="https://canva.link/b84pgyskz65k2n3" target="_blank" title="Download do Catálogo">clique aqui</a>.</p>
+							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
+								<p>Deseja conhecer uma experiência personalizada?</p>
+								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Experiências: Agendar Atendimento">Agendar Atendimento</a>
+							</div>
 				`
 			},
 
 			BENEFICIOS: {
 				title: "Benefícios",
 				subtitle: "O que você pode desenvolver",
-				image: "./imgs/gemima-perfil-02.jpeg",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
 							<p><img src="./imgs/gemima-perfil-01.jpeg" class="content-right-circular-image"><strong>Consciência Corporal</strong></p>
 							<p>Reconheça tensões, bloqueios e padrões acumulados ao longo do tempo.</p>
-							<p><strong>Presença</strong></p>
-							<p>Aprenda a desacelerar e viver experiências com mais profundidade.</p>
-							<p><strong>Vitalidade</strong></p>
-							<p>Amplie sua energia e sua percepção corporal.</p>
-							<p><strong>Relacionamentos</strong></p>
-							<p>Fortaleça a conexão consigo mesmo e com quem você ama.</p>
-							<p><strong>Autoconhecimento</strong></p>
-							<p>Descubra novas formas de sentir, perceber e compreender seu próprio corpo.</p>
+							<p><strong>Presença</strong><br/>Aprenda a desacelerar e viver experiências com mais profundidade.</p>
+							<p><strong>Vitalidade</strong><br/>Amplie sua energia e sua percepção corporal.</p>
+							<p><strong>Relacionamentos</strong><br/>Fortaleça a conexão consigo mesmo e com quem você ama.</p>
+							<p><strong>Autoconhecimento</strong><br/>Descubra novas formas de sentir, perceber e compreender seu próprio corpo.</p>
+							<div class="mj-cta-links">
+								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('EXPERIENCIAS'); return false;" title="Benefícios: Chamada para - Experiências">
+									<strong>Quer conhecer os detalhes de cada experiência terapêutica?</strong>
+									<span>Valores, duração, modalidades e tudo o que você precisa saber antes de agendar.</span>
+									<span style="color: var(--call-to-action-link); text-decoration: none;">👉 Acessar o catálogo completo</span>
+								</a>
+							</div>
+							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
+								<p>Deseja conhecer uma experiência personalizada?</p>
+								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Benefícios: Agendar Atendimento">Agendar Atendimento</a>
+							</div>
 				`
 			},
 			GALERIA: {
 				title: "Galeria",
 				subtitle: "Ambiente e acolhimento",
-				image: "./imgs/gemima-m-mansoor-foto-03.jpg",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
 						<p>Toque em qualquer foto ou vídeo para ver em tela cheia.</p>
@@ -3178,10 +3724,10 @@
 			EXCLUSIVO: {
 				title: "Conteúdo Exclusivo & Canais Oficiais",
 				subtitle: "Acompanhe Gemima Além das Sessões",
-				image: "./imgs/gemima-m-mansoor-foto-09.jpeg",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
-							<p>Cada experiência é apenas uma parte da jornada.</p>
+							<p><img src="./imgs/gemima-m-mansoor-foto-11.jpg" class="content-right-circular-image">Cada experiência é apenas uma parte da jornada.</p>
 							
 							<p>Nos canais oficiais você encontra conteúdos, novidades, bastidores, reflexões, atualizações e formas de se conectar ainda mais com o universo da terapia corporal e do desenvolvimento pessoal.</p>
 
@@ -3248,16 +3794,14 @@
 			},
 
 			CONTATOS: {
-				title: "Contatos e Parcerias",
-				subtitle: "Vamos nos conectar?",
-				image: "./imgs/gemima-m-mansoor-foto-07.jpg",
+				title: "Contatos",
+				subtitle: "Escolha o canal mais prático para você",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
-							<p>📞 <strong>Precisa de informações, agendamentos ou quer propor uma colaboração?</strong> Escolha o canal mais conveniente para você.</p>
-							<p>Utilize os ícones de <strong>WhatsApp, Telegram, SMS, telefone ou e‑mail</strong> que aparecem no final desta e de todas as páginas.</p>
-							<p><strong>🤝 Para parcerias, collabs e imprensa:</strong></p>
-							<p>Se você é representante de marca, clínica, spa, plataforma de bem-estar ou veículo de comunicação, utilize o formulário abaixo ou envie um e-mail com sua proposta. Analiso todas as oportunidades com atenção e discrição.</p>
-							<p>✅ <strong>Possibilidades de colaboração:</strong> eventos, conteúdos patrocinados, consultoria terapêutica, vivências exclusivas para grupos selecionados e programas de afiliados.</p>
+							<p><strong>Precisa de informações, agendamentos ou tem alguma dúvida?</strong> Fique à vontade para me contatar pelos canais abaixo.</p>
+							<p>Utilize os ícones de <strong>WhatsApp ou Telegram</strong> que aparecem no final das páginas.</p>
+							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
 							<p>Se preferir, envie uma mensagem diretamente por aqui (formulário abaixo) e entrarei em contato.</p>
 							<div class="forminsert"></div>
 							<br/>
@@ -3267,7 +3811,7 @@
 			FAQ: {
 				title: "Perguntas Frequentes",
 				subtitle: "Dúvidas comuns sobre o trabalho terapêutico",
-				image: "./imgs/gemima-video-04-thumb.png",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
 							<div class="faq-container"></div>
@@ -3479,7 +4023,7 @@
 						parentItem.classList.remove('open');
 					} else {
 						// Fecha todos e abre apenas o atual
-						closeAll();
+						//closeAll();
 						parentItem.classList.add('open');
 					}
 				});
@@ -3573,12 +4117,25 @@
             // Determina qual face atualizar (a que está escondida para girar)
             const targetSide = isFlipped ? 'front' : 'back';
 			const targetTextWrapper = document.getElementById(`content-${targetSide}`);
+			//console.log(key);
+			let socialMediaAuxHTML = ``;
+			if (key != 'INICIO') {
+				socialMediaAuxHTML = socialMediaHTML;
+				//console.log('aqui!');
+				if (document.getElementById(`content-${targetSide}`).classList.contains('marginTop26dvh')) {
+					document.getElementById(`content-${targetSide}`).classList.remove('marginTop26dvh');
+				}
+			}
+			if (key === 'INICIO') {
+				document.getElementById(`content-${targetSide}`).classList.add('marginTop26dvh');
+			}
 			document.getElementById(`content-${targetSide}`).innerHTML = `
 				<h2>${sectionsData[key].title}</h2>
 				<article>
 					<h3>${sectionsData[key].subtitle}</h3>
 					<p>${sectionsData[key].content}</p>
-					${socialMediaHTML} 
+					${socialMediaAuxHTML}
+					${footerHTML}
 				</article>
 			`;
 
@@ -3739,12 +4296,13 @@
 			preloadImages();
 			const targetTextWrapper = document.getElementById('content-front');
 			// Inicializa a primeira face com os dados de INICIO
+			document.getElementById(`content-front`).classList.add('marginTop26dvh');
             document.getElementById('content-front').innerHTML = `
 				<h2>${sectionsData.PG404.title}</h2>
 				<article>
 					<h3>${sectionsData.PG404.subtitle}</h3>
 					<p>${sectionsData.PG404.content}</p>
-					${socialMediaHTML} 
+					${footerHTML} 
 				</article>
             `;
 			
@@ -3910,6 +4468,8 @@
 			'./imgs/gemima-video-04.mp4',
 			'./imgs/gemima-video-04-thumb.png',
 			'./imgs/logo-gemima-cartao-digital-puro-v01-01.png',
+			'./imgs/gemima-m-mansoor-background.png',
+			'./imgs/gemima-m-mansoor-foto-background.png',
         ];
 
         // Use Promise.all to wait for all images to load
