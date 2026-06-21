@@ -3183,7 +3183,7 @@
 							</ul>
 						</div>
                         <ul class="nav-icons">
-                            <li><a href="#" onclick="changeContent('SOBRE')" title="Sobre Gemima M Mansoor"><i class="fa-solid fa-info"></i></a></li>
+                            <li><a href="#" onclick="changeContent('EXPERIENCIAS')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
                             <li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos"><i class="fa-solid fa-address-book"></i></a></li>
                             <li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
                             <li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
@@ -3255,7 +3255,7 @@
 							</ul>
 						</div>
                         <ul class="nav-icons">
-                            <li><a href="#" onclick="changeContent('SOBRE')" title="Sobre Gemima M Mansoor"><i class="fa-solid fa-info"></i></a></li>
+                            <li><a href="#" onclick="changeContent('EXPERIENCIAS')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
                             <li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos"><i class="fa-solid fa-address-book"></i></a></li>
                             <li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
                             <li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
@@ -3271,7 +3271,7 @@
         <span class="close-btn" onclick="toggleOverlay()">&times;</span>
 		<ul class="overlay-list">
 			<li onclick="changeContent('INICIO')">Página inicial</li>
-			<li onclick="changeContent('SOBRE')">Sobre Gemima M Mansoor</li>
+			<!--li onclick="changeContent('SOBRE')">Sobre Gemima M Mansoor</li-->
 			<li onclick="changeContent('EXPERIENCIAS')">Experiências</li>
 			<li onclick="changeContent('BENEFICIOS')">Benefícios</li>
 			<!-- li onclick="changeContent('GALERIA')">Galeria</li -->
@@ -3550,7 +3550,7 @@
 					<p><a href="./" alt="Clique aqui">Clique aqui</a></p>
 				` 
 			},
-			INICIO: {
+			INICIO_BKP: {
 				title: "Gemima M Mansoor",
 				subtitle: "Terapia Corporal Integrativa",
 				image: "./imgs/gemima-m-mansoor-background.png",
@@ -3564,8 +3564,8 @@
 				`
 			},
 
-			SOBRE: {
-				title: "Conheça Gemima Mansoor",
+			INICIO: {
+				title: "Gemima Mansoor",
 				subtitle: "Terapeuta Corporal Integrativa",
 				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
@@ -3647,77 +3647,6 @@
 								<p>Deseja conhecer uma experiência personalizada?</p>
 								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Benefícios: Agendar Atendimento">Agendar Atendimento</a>
 							</div>
-				`
-			},
-			GALERIA: {
-				title: "Galeria",
-				subtitle: "Ambiente e acolhimento",
-				image: "./imgs/gemima-m-mansoor-foto-background.png",
-				video: "",
-				content: `
-						<p>Toque em qualquer foto ou vídeo para ver em tela cheia.</p>
-						<h3 style="color:var(--newtitle-color); margin-top:1em;">Galeria de vídeos</h3>
-						<div class="gallery-container" data-gallery="galeria_gemima"></div>
-						<h3 style="color:var(--newtitle-color); margin-top:1em;">Galeria de fotos</h3>
-						<div class="mj-carousel-container" id="carousel-quem-sou">
-							<div class="mj-carousel-viewport">
-								<div class="mj-carousel-track">
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-01.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-02.jpeg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-03.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-04.jpeg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-05.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-11.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-13.jpeg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-									<div class="mj-carousel-item">
-										<div class="mj-image-wrapper">
-											<img src="./imgs/gemima-m-mansoor-foto-12.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
-											<div class="mj-carousel-caption">Gemima M Mansoor</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<button class="mj-carousel-nav mj-prev" aria-label="Anterior">&#10094;</button>
-							<button class="mj-carousel-nav mj-next" aria-label="Próximo">&#10095;</button>
-
-							<div class="mj-carousel-dots"></div>
-						</div>
 				`
 			},
 			
@@ -3822,6 +3751,119 @@
 				`
 			},
 
+			SOBRE: {
+				title: "Gemima Mansoor",
+				subtitle: "Terapeuta Corporal Integrativa",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
+				video: "",
+				content: `
+							<p><img src="./imgs/gemima-m-mansoor-foto-01.jpg" class="content-right-circular-image">Sou Gemima M Mansoor, terapeuta corporal com formação em Terapia Corporal, Renascimento (Rebirthing), Somatização do Trauma e especialização em Disfunções Sexuais Masculinas.</p>
+							<p>Meu trabalho é conduzir processos de presença, consciência corporal e expansão sensorial por meio de técnicas integrativas que unem toque, respiração e escuta do corpo.</p>
+							
+							<p>Cada encontro é único, criado para restaurar vitalidade, reduzir tensões, ampliar a percepção corporal e proporcionar uma experiência profunda de conexão consigo mesmo ou com quem você ama.</p>
+							
+							<div class="feature-card">
+								<ul class="feature-list nopadding">
+									<li><i class="fas fa-check-circle"></i>Discrição absoluta</li>
+									<li><i class="fas fa-check-circle"></i>Atendimento personalizado</li>
+									<li><i class="fas fa-check-circle"></i>Ambiente seguro e acolhedor</li>
+								</ul>
+							</div>
+							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
+							<h3 style="color: var(--newtitle-color); margin-top: 0.5em;">Minha formação reúne conhecimentos em:</h3>
+							<div class="feature-card">
+								<ul class="feature-list nopadding">
+									<li><i class="fas fa-check-circle"></i><span>Terapia Corporal</span></li>
+									<li><i class="fas fa-check-circle"></i><span>Renascimento <em>(Rebirthing)</em></span></li>
+									<li><i class="fas fa-check-circle"></i><span>Somatização do Trauma</span></li>
+									<li><i class="fas fa-check-circle"></i><span>Disfunções Sexuais Masculinas</span></li>
+									<li><i class="fas fa-check-circle"></i><span>Técnicas Integrativas de Presença Corporal</span></li>
+								</ul>
+							</div>
+							<div class="mj-cta-links">
+								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('EXPERIENCIAS'); return false;" title="Sobre: Chamada para - Experiências">
+									<strong>Quer conhecer os detalhes de cada experiência terapêutica?</strong>
+									<span>Valores, duração, modalidades e tudo o que você precisa saber antes de agendar.</span>
+									<span style="color: var(--call-to-action-link); text-decoration: none;">👉 Acessar o catálogo completo</span>
+								</a>
+							</div>
+							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
+								<p>Deseja conhecer uma experiência personalizada?</p>
+								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Sobre: Agendar Atendimento">Agendar Atendimento</a>
+							</div>
+				`
+			},
+			GALERIA: {
+				title: "Galeria",
+				subtitle: "Ambiente e acolhimento",
+				image: "./imgs/gemima-m-mansoor-foto-background.png",
+				video: "",
+				content: `
+						<p>Toque em qualquer foto ou vídeo para ver em tela cheia.</p>
+						<h3 style="color:var(--newtitle-color); margin-top:1em;">Galeria de vídeos</h3>
+						<div class="gallery-container" data-gallery="galeria_gemima"></div>
+						<h3 style="color:var(--newtitle-color); margin-top:1em;">Galeria de fotos</h3>
+						<div class="mj-carousel-container" id="carousel-quem-sou">
+							<div class="mj-carousel-viewport">
+								<div class="mj-carousel-track">
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-01.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-02.jpeg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-03.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-04.jpeg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-05.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-11.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-13.jpeg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+									<div class="mj-carousel-item">
+										<div class="mj-image-wrapper">
+											<img src="./imgs/gemima-m-mansoor-foto-12.jpg" alt="Gemima M Mansoor" class="mj-carousel-img">
+											<div class="mj-carousel-caption">Gemima M Mansoor</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<button class="mj-carousel-nav mj-prev" aria-label="Anterior">&#10094;</button>
+							<button class="mj-carousel-nav mj-next" aria-label="Próximo">&#10095;</button>
+
+							<div class="mj-carousel-dots"></div>
+						</div>
+				`
+			},
 			REDES_SOCIAIS: {
 				title: "Minhas Redes Sociais",
 				subtitle: "Me acompanhe em tempo real.",
@@ -4122,13 +4164,17 @@
 			if (key != 'INICIO') {
 				socialMediaAuxHTML = socialMediaHTML;
 				//console.log('aqui!');
+				/*
 				if (document.getElementById(`content-${targetSide}`).classList.contains('marginTop26dvh')) {
 					document.getElementById(`content-${targetSide}`).classList.remove('marginTop26dvh');
 				}
+				*/
 			}
+			/*
 			if (key === 'INICIO') {
 				document.getElementById(`content-${targetSide}`).classList.add('marginTop26dvh');
 			}
+			*/
 			document.getElementById(`content-${targetSide}`).innerHTML = `
 				<h2>${sectionsData[key].title}</h2>
 				<article>
@@ -4296,7 +4342,7 @@
 			preloadImages();
 			const targetTextWrapper = document.getElementById('content-front');
 			// Inicializa a primeira face com os dados de INICIO
-			document.getElementById(`content-front`).classList.add('marginTop26dvh');
+			//document.getElementById(`content-front`).classList.add('marginTop26dvh');
             document.getElementById('content-front').innerHTML = `
 				<h2>${sectionsData.PG404.title}</h2>
 				<article>
