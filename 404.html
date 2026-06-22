@@ -3087,7 +3087,7 @@
 			"description": "Gemima M Mansoor – Terapeuta Corporal especializada em práticas integrativas, massagem tântrica, renascimento e bem-estar. Atendimento exclusivo e discreto.",
 			"image": "https://dcards.github.io/gemima-mansoor/imgs/logo-gemima-cartao-digital-puro-v01-01.png",
 			"sameAs": [
-				"https://www.instagram.com/gemimammansoor/",
+				"https://www.instagram.com/gemimaterapeuta2/",
 				"https://x.com/gemimavip",
 				"https://www.facebook.com/sawadeeyoga",
 				"https://privacy.com.br/profile/gemimafree"
@@ -3488,9 +3488,9 @@
 							<div class="contact-btn"><i class="fa-brands fa-whatsapp"></i></div>
 							<span class="contact-label">WhatsApp</span>
 						</a>
-						<a href="https://t.me/gemimafree?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="contact-item" title="Telegram - Contato">
-							<div class="contact-btn"><i class="fa-brands fa-telegram"></i></div>
-							<span class="contact-label">Telegram</span>
+						<a href="https://ig.me/m/gemimaterapeuta2" target="_blank" class="contact-item" title="Direct - Contato">
+							<div class="contact-btn"><i class="fa-regular fa-paper-plane"></i></div>
+							<span class="contact-label">Direct</span>
 						</a>
 						<a href="https://drive.usercontent.google.com/u/0/uc?id=19Ry0yEZJWkOIg6QB5J37hvz-tSBVljkQ&export=download" class="contact-item" title="Salvar - Contato">
 							<div class="contact-btn"><i class="fa-solid fa-address-card"></i></div>
@@ -3729,7 +3729,7 @@
 				video: "",
 				content: `
 							<p><strong>Precisa de informações, agendamentos ou tem alguma dúvida?</strong> Fique à vontade para me contatar pelos canais abaixo.</p>
-							<p>Utilize os ícones de <strong>WhatsApp ou Telegram</strong> que aparecem no final das páginas.</p>
+							<p>Utilize os ícones do <strong>WhatsApp ou Direct</strong> que aparecem no final das páginas.</p>
 							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
 							<p>Se preferir, envie uma mensagem diretamente por aqui (formulário abaixo) e entrarei em contato.</p>
 							<div class="forminsert"></div>
@@ -3872,7 +3872,7 @@
 				content: `
 							<p>🌐 <strong>Escolha sua plataforma favorita e me siga:</strong></p>
 							<div class="mj-cta-links">
-								<a href="https://www.instagram.com/gemimammansoor/" class="mj-cta-card" target="_blank" title="Minhas redes sociais: Instagram">
+								<a href="https://www.instagram.com/gemimaterapeuta2/" class="mj-cta-card" target="_blank" title="Minhas redes sociais: Instagram">
 									<strong>Instagram</strong>
 									<span>Fotos, stories e bastidores.</span>
 									<span style="color: var(--call-to-action-link); text-decoration: none;">Clique aqui!</span>
@@ -4160,16 +4160,17 @@
             const targetSide = isFlipped ? 'front' : 'back';
 			const targetTextWrapper = document.getElementById(`content-${targetSide}`);
 			//console.log(key);
+			let socialMediaAuxHTML = socialMediaHTML;
+			/*
 			let socialMediaAuxHTML = ``;
 			if (key != 'INICIO') {
 				socialMediaAuxHTML = socialMediaHTML;
 				//console.log('aqui!');
-				/*
 				if (document.getElementById(`content-${targetSide}`).classList.contains('marginTop26dvh')) {
 					document.getElementById(`content-${targetSide}`).classList.remove('marginTop26dvh');
 				}
-				*/
 			}
+			*/
 			/*
 			if (key === 'INICIO') {
 				document.getElementById(`content-${targetSide}`).classList.add('marginTop26dvh');
@@ -4342,12 +4343,14 @@
 			preloadImages();
 			const targetTextWrapper = document.getElementById('content-front');
 			// Inicializa a primeira face com os dados de INICIO
+			let socialMediaAuxHTML = socialMediaHTML;
 			//document.getElementById(`content-front`).classList.add('marginTop26dvh');
             document.getElementById('content-front').innerHTML = `
 				<h2>${sectionsData.PG404.title}</h2>
 				<article>
 					<h3>${sectionsData.PG404.subtitle}</h3>
 					<p>${sectionsData.PG404.content}</p>
+					${socialMediaAuxHTML}
 					${footerHTML} 
 				</article>
             `;
