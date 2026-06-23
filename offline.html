@@ -3562,10 +3562,10 @@
 			INICIO: {
 				title: "Gemima Mansoor",
 				subtitle: "Terapeuta Corporal Integrativa",
-				image: "./imgs/gemima-m-mansoor-foto-background.png",
+				image: "./imgs/gemima-m-mansoor-foto-16.jpeg",
 				video: "",
 				content: `
-							<p><img src="./imgs/gemima-m-mansoor-foto-01.jpg" class="content-right-circular-image">Sou Gemima M Mansoor, terapeuta corporal com formação em Terapia Corporal, Renascimento (Rebirthing), Somatização do Trauma e especialização em Disfunções Sexuais Masculinas.</p>
+							<p><img src="./imgs/gemima-m-mansoor-foto-15.jpeg" class="content-right-circular-image">Sou Gemima M Mansoor, terapeuta corporal com formação em Terapia Corporal, Renascimento (Rebirthing), Somatização do Trauma e especialização em Disfunções Sexuais Masculinas.</p>
 							<p>Meu trabalho é conduzir processos de presença, consciência corporal e expansão sensorial por meio de técnicas integrativas que unem toque, respiração e escuta do corpo.</p>
 							
 							<p>Cada encontro é único, criado para restaurar vitalidade, reduzir tensões, ampliar a percepção corporal e proporcionar uma experiência profunda de conexão consigo mesmo ou com quem você ama.</p>
@@ -3608,7 +3608,7 @@
 				image: "./imgs/gemima-m-mansoor-foto-background.png",
 				video: "",
 				content: `
-							<p><img src="./imgs/gemima-m-mansoor-foto-13.jpeg" class="content-right-circular-image">Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
+							<p><img src="./imgs/gemima-m-mansoor-foto-15.jpeg" class="content-right-circular-image">Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
 							<p>Clique em cada experiência para conhecer mais detalhes, valores e duração.</p>
 							<div class="catalogo-accordion-container"></div>
 							<p style="margin-top: 1em;">Para fazer download do catálogo, <a href="https://canva.link/b84pgyskz65k2n3" target="_blank" title="Download do Catálogo">clique aqui</a>.</p>
@@ -3724,7 +3724,7 @@
 				video: "",
 				content: `
 							<p><strong>Precisa de informações, agendamentos ou tem alguma dúvida?</strong> Fique à vontade para me contatar pelos canais abaixo.</p>
-							<p>Utilize os ícones do <strong>WhatsApp ou Direct</strong> que aparecem no final das páginas.</p>
+							<p>Utilize o ícone do <strong>WhatsApp</strong> que aparece no final das páginas.</p>
 							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
 							<p>Se preferir, envie uma mensagem diretamente por aqui (formulário abaixo) e entrarei em contato.</p>
 							<div class="forminsert"></div>
@@ -4267,6 +4267,18 @@
             navIconsFront.forEach((btn, index) => {
                 btn.addEventListener('click', () => updateNavActive(index));
             });
+			navOverlayMenu.forEach(menuList => {
+                menuList.addEventListener('click', (menuItem) => {
+					const liTexto = menuItem.target.textContent;
+					console.log(liTexto);
+					if (liTexto === 'Experiências') {
+						updateNavActive(0);
+					}
+					if (liTexto === 'Contatos') {
+						updateNavActive(1);
+					}
+				});
+            });
 
             // Adiciona evento de clique para os itens do verso
             navIconsBack.forEach((btn, index) => {
@@ -4516,6 +4528,8 @@
 			'./imgs/logo-gemima-cartao-digital-puro-v01-01.png',
 			'./imgs/gemima-m-mansoor-background.png',
 			'./imgs/gemima-m-mansoor-foto-background.png',
+			'./imgs/gemima-m-mansoor-foto-15.jpeg',
+			'./imgs/gemima-m-mansoor-foto-16.jpeg',
         ];
 
         // Use Promise.all to wait for all images to load
@@ -5680,5 +5694,264 @@
 			console.log('✅ Rastreamento de cliques global ativado.');
 		})();
 	</script>
+	<!-- ======== BLOCO DE ATUALIZAÇÃO PWA ======== -->
+	<style>
+		/* Banner de notificação de atualização */
+		#update-banner {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background: rgba(0, 0, 0, 0.92);
+			backdrop-filter: blur(10px);
+			border-top: 2px solid var(--gold-primary, #D4AF37);
+			padding: 1em;
+			display: none;
+			justify-content: space-between;
+			align-items: center;
+			z-index: 99999;
+			color: #fff;
+			font-family: var(--font-base, 'Poppins', sans-serif);
+			box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+			flex-wrap: wrap;
+			gap: 0.8em;
+		}
+		#update-banner.show {
+			display: flex;
+		}
+		#update-banner .update-message {
+			display: flex;
+			align-items: center;
+			gap: 0.8em;
+			font-size: 0.8em;
+			padding: 0 0 1em 0;
+		}
+		#update-banner .update-message i {
+			color: var(--gold-primary, #D4AF37);
+			font-size: 1.3em;
+		}
+		#update-banner .update-actions {
+			display: flex;
+			gap: 0.8em;
+			flex-wrap: wrap;
+		}
+		#update-banner .update-btn {
+			background: var(--gold-primary, #D4AF37);
+			color: #000;
+			border: none;
+			padding: 0.5em 1.2em;
+			border-radius: 50px;
+			font-weight: 600;
+			cursor: pointer;
+			transition: 0.3s;
+			font-size: 0.8em;
+		}
+		#update-banner .update-btn:hover {
+			transform: scale(1.05);
+			background: #fff;
+		}
+		#update-banner .update-btn.secondary {
+			background: transparent;
+			border: 1px solid rgba(255,255,255,0.3);
+			color: #ddd;
+		}
+		#update-banner .update-btn.secondary:hover {
+			background: rgba(255,255,255,0.1);
+			color: #fff;
+		}
+		/* Pequeno ajuste para mobile */
+		@media (max-width: 600px) {
+			#update-banner {
+				flex-direction: column;
+				align-items: stretch;
+				text-align: center;
+				padding: 1em;
+			}
+			#update-banner .update-actions {
+				justify-content: center;
+			}
+		}
+	</style>
+
+	<div id="update-banner">
+		<div class="update-message">
+			<i class="fas fa-sync-alt fa-spin"></i>
+			<span>Nova versão disponível! Clique em "Atualizar" e conferira.</span>
+		</div>
+		<div class="update-actions">
+			<button class="update-btn" id="update-reload-btn">↻ Atualizar agora</button>
+			<button class="update-btn secondary" id="update-dismiss-btn">✕ Dispensar</button>
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			'use strict';
+
+			// ---------- Elementos ----------
+			const banner = document.getElementById('update-banner');
+			const reloadBtn = document.getElementById('update-reload-btn');
+			const dismissBtn = document.getElementById('update-dismiss-btn');
+			const bannerMessage = banner.querySelector('.update-message span');
+
+			// ---------- Estado ----------
+			let updateAvailable = false;
+
+			// ---------- Limpeza de cache ----------
+			async function clearAllCaches() {
+				try {
+					const cacheNames = await caches.keys();
+					await Promise.all(cacheNames.map(name => caches.delete(name)));
+					console.log('[PWA] Todos os caches foram removidos.');
+				} catch (err) {
+					console.warn('[PWA] Erro ao limpar caches:', err);
+				}
+			}
+
+			// ---------- Forçar atualização ----------
+			async function forceUpdate() {
+				// Remove o item do menu (se existir)
+				removeUpdateMenuItem();
+
+				// Oculta o banner
+				banner.classList.remove('show');
+
+				// Mostra feedback
+				bannerMessage.textContent = '🔄 Limpando cache e recarregando...';
+				reloadBtn.disabled = true;
+				dismissBtn.disabled = true;
+
+				// Limpa caches
+				await clearAllCaches();
+
+				// Recarrega a página (ignorando cache HTTP)
+				window.location.reload(true);
+			}
+
+			// ---------- Gerenciamento do item no menu overlay ----------
+			function getOverlayList() {
+				return document.querySelector('.overlay-list');
+			}
+
+			function addUpdateMenuItem() {
+				const list = getOverlayList();
+				if (!list) return;
+				// Verifica se já existe
+				if (list.querySelector('[data-update-btn]')) return;
+
+				const li = document.createElement('li');
+				li.setAttribute('data-update-btn', 'true');
+				li.innerHTML = '↻ Atualizar site';
+				li.style.cursor = 'pointer';
+				li.addEventListener('click', function (e) {
+					e.stopPropagation();
+					// Fecha o overlay
+					const overlay = document.getElementById('overlay-menu');
+					if (overlay) overlay.classList.remove('active');
+					// Executa a atualização
+					forceUpdate();
+				});
+				// Insere antes do último item (FAQ)
+				const lastItem = list.lastElementChild;
+				if (lastItem) {
+					list.insertBefore(li, lastItem);
+				} else {
+					list.appendChild(li);
+				}
+				console.log('[PWA] Item "Atualizar site" adicionado ao menu.');
+			}
+
+			function removeUpdateMenuItem() {
+				const list = getOverlayList();
+				if (!list) return;
+				const item = list.querySelector('[data-update-btn]');
+				if (item) {
+					item.remove();
+					console.log('[PWA] Item "Atualizar site" removido do menu.');
+				}
+			}
+
+			// ---------- Exibir banner e adicionar item quando houver atualização ----------
+			function onUpdateAvailable() {
+				if (updateAvailable) return; // já está ativo
+				updateAvailable = true;
+
+				// Mostra o banner
+				banner.classList.add('show');
+				bannerMessage.innerHTML = 'Nova versão disponível! Clique em "Atualizar" e confira.';
+				reloadBtn.disabled = false;
+				dismissBtn.disabled = false;
+
+				// Adiciona o item no menu
+				addUpdateMenuItem();
+
+				// Guarda que a atualização está disponível (para não mostrar novamente na mesma sessão)
+				sessionStorage.setItem('pwa-update-pending', 'true');
+			}
+
+			// ---------- Verificar atualizações (Service Worker) ----------
+			function checkForUpdates() {
+				if (!('serviceWorker' in navigator)) return;
+
+				navigator.serviceWorker.ready
+					.then(registration => {
+						registration.addEventListener('updatefound', () => {
+							const newWorker = registration.installing;
+							if (!newWorker) return;
+
+							newWorker.addEventListener('statechange', () => {
+								if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+									// Nova versão instalada e já existe uma versão ativa
+									onUpdateAvailable();
+								}
+							});
+						});
+
+						// Também tenta verificar periodicamente (a cada 30 min)
+						// registration.update(); // opcional, mas o navegador já faz automaticamente
+					})
+					.catch(err => console.warn('[PWA] Erro ao verificar atualizações:', err));
+			}
+
+			// ---------- Eventos dos botões ----------
+			reloadBtn.addEventListener('click', forceUpdate);
+
+			dismissBtn.addEventListener('click', () => {
+				banner.classList.remove('show');
+				// Mantém o item no menu, pois a atualização ainda está pendente
+				// O item só será removido quando o usuário efetivamente atualizar
+			});
+
+			// ---------- Restaura estado ao carregar a página ----------
+			function restoreState() {
+				// Se havia uma atualização pendente na sessão anterior, mas a página recarregou,
+				// significa que a atualização já foi aplicada (ou o usuário recarregou manualmente).
+				// Portanto, removemos o item e limpamos o flag.
+				if (sessionStorage.getItem('pwa-update-pending') === 'true') {
+					// Se a página recarregou, a nova versão já deve estar ativa.
+					// Removemos o item do menu, pois não há mais atualização pendente.
+					removeUpdateMenuItem();
+					sessionStorage.removeItem('pwa-update-pending');
+					updateAvailable = false;
+				}
+			}
+
+			// ---------- Inicialização ----------
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', () => {
+					restoreState();
+					checkForUpdates();
+				});
+			} else {
+				restoreState();
+				checkForUpdates();
+			}
+
+			// ---------- Expor função global (opcional) ----------
+			window.forcePWAUpdate = forceUpdate;
+
+		})();
+	</script>
+	<!-- ======== FIM DO BLOCO ======== -->
 </body>
 </html>

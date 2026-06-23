@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dcard-gemima-mansoor-v02-06';
+var CACHE_NAME = 'dcard-gemima-mansoor-v02-09';
 var urlsToCache = [
 	'./',
 	'./index.html',
@@ -56,7 +56,9 @@ var urlsToCache = [
 	'./imgs/gemima-video-04-thumb.png',
 	'./imgs/logo-gemima-cartao-digital-puro-v01-01.png',
 	'./imgs/gemima-m-mansoor-background.jpeg',
-	'./imgs/gemima-m-mansoor-foto-background.png'
+	'./imgs/gemima-m-mansoor-foto-background.png',
+	'./imgs/gemima-m-mansoor-foto-15.jpeg',
+	'./imgs/gemima-m-mansoor-foto-16.jpeg'
 ];
 self.addEventListener('install', (event) => {
 	event.waitUntil( // Ensures the service worker doesn't finish installing until all files are cached
@@ -71,6 +73,7 @@ self.addEventListener('install', (event) => {
 		})
 	);
 });
+/*
 self.addEventListener('activate', function(event) {
 	event.waitUntil(
 		caches.keys().then(function(cacheNames) {
@@ -84,6 +87,21 @@ self.addEventListener('activate', function(event) {
 				})
 			);
 		})
+	);
+});
+*/
+self.addEventListener('activate', function(event) {
+	const currentCache = CACHE_NAME;
+	event.waitUntil(
+	  caches.keys().then(function(cacheNames) {
+		return Promise.all(
+		  cacheNames.map(function(cacheName) {
+			if (cacheName !== currentCache) {
+			  return caches.delete(cacheName);
+			}
+		  })
+		);
+	  })
 	);
 });
 /* FETCH */
