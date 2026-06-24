@@ -3192,7 +3192,7 @@
 							</ul>
 						</div>
                         <ul class="nav-icons">
-                            <li><a href="#" onclick="changeContent('EXPERIENCIAS')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
+                            <li><a href="#" onclick="changeContent('SOBRE')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
                             <li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos"><i class="fa-solid fa-address-book"></i></a></li>
                             <li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
                             <li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
@@ -3264,7 +3264,7 @@
 							</ul>
 						</div>
                         <ul class="nav-icons">
-                            <li><a href="#" onclick="changeContent('EXPERIENCIAS')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
+                            <li><a href="#" onclick="changeContent('SOBRE')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
                             <li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos"><i class="fa-solid fa-address-book"></i></a></li>
                             <li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
                             <li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
@@ -3280,8 +3280,8 @@
         <span class="close-btn" onclick="toggleOverlay()">&times;</span>
 		<ul class="overlay-list">
 			<li onclick="changeContent('INICIO')">Página inicial</li>
-			<!--li onclick="changeContent('SOBRE')">Sobre Gemima M Mansoor</li-->
-			<li onclick="changeContent('EXPERIENCIAS')">Experiências</li>
+			<li onclick="changeContent('SOBRE')">Sobre Gemima M Mansoor</li>
+			<!--li onclick="changeContent('EXPERIENCIAS')">Experiências</li-->
 			<li onclick="changeContent('BENEFICIOS')">Benefícios</li>
 			<!-- li onclick="changeContent('GALERIA')">Galeria</li -->
 			<li onclick="changeContent('EXCLUSIVO')">Conteúdo Exclusivo</li>
@@ -3559,7 +3559,7 @@
 				`
 			},
 
-			INICIO: {
+			SOBRE: {
 				title: "Gemima Mansoor",
 				subtitle: "Terapeuta Corporal Integrativa",
 				image: "./imgs/gemima-m-mansoor-foto-16.jpeg",
@@ -3589,7 +3589,7 @@
 								</ul>
 							</div>
 							<div class="mj-cta-links">
-								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('EXPERIENCIAS'); return false;" title="Sobre: Chamada para - Experiências">
+								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('INICIO'); return false;" title="Sobre: Chamada para - Experiências">
 									<strong>Quer conhecer os detalhes de cada experiência terapêutica?</strong>
 									<span>Valores, duração, modalidades e tudo o que você precisa saber antes de agendar.</span>
 									<span style="color: var(--call-to-action-link); text-decoration: none;">👉 Acessar o catálogo completo</span>
@@ -3602,14 +3602,15 @@
 				`
 			},
 
-			EXPERIENCIAS: {
+			INICIO: {
 				title: "Experiências Terapêuticas",
-				subtitle: "Toque, presença e transformação",
+				subtitle: "Corpo, mente e presença",
 				image: "./imgs/gemima-m-mansoor-foto-16.jpeg",
 				video: "",
 				content: `
-							<p><img src="./imgs/gemima-m-mansoor-foto-15.jpeg" class="content-right-circular-image">Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
-							<p>Clique em cada experiência para conhecer mais detalhes, valores e duração.</p>
+							<p>Toque nas experiências abaixo para ver <strong>detalhes</strong>, <strong>valores</strong> e <strong>duração</strong>.</p>
+							<p>Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
+							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
 							<div class="catalogo-accordion-container"></div>
 							<p style="margin-top: 1em;">Para fazer download do catálogo, <a href="https://canva.link/b84pgyskz65k2n3" target="_blank" title="Download do Catálogo">clique aqui</a>.</p>
 							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
@@ -3632,7 +3633,7 @@
 							<p><strong>Relacionamentos</strong><br/>Fortaleça a conexão consigo mesmo e com quem você ama.</p>
 							<p><strong>Autoconhecimento</strong><br/>Descubra novas formas de sentir, perceber e compreender seu próprio corpo.</p>
 							<div class="mj-cta-links">
-								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('EXPERIENCIAS'); return false;" title="Benefícios: Chamada para - Experiências">
+								<a href="#exclusivo" class="mj-cta-card" onclick="changeContent('INICIO'); return false;" title="Benefícios: Chamada para - Experiências">
 									<strong>Quer conhecer os detalhes de cada experiência terapêutica?</strong>
 									<span>Valores, duração, modalidades e tudo o que você precisa saber antes de agendar.</span>
 									<span style="color: var(--call-to-action-link); text-decoration: none;">👉 Acessar o catálogo completo</span>
@@ -3746,7 +3747,7 @@
 				`
 			},
 
-			SOBRE: {
+			SOBRE_BKP: {
 				title: "Gemima Mansoor",
 				subtitle: "Terapeuta Corporal Integrativa",
 				image: "./imgs/gemima-m-mansoor-foto-background.png",
@@ -4183,7 +4184,7 @@
 			`;
 
 			// Após injetar, localiza os containers específicos dentro desta face
-			if (key === 'EXPERIENCIAS') {
+			if (key === 'INICIO') {
 				const accordionContainer = targetTextWrapper.querySelector('.catalogo-accordion-container');
 				if (accordionContainer) buildAccordion(accordionContainer);
 			}
@@ -4363,6 +4364,9 @@
 					${footerHTML} 
 				</article>
             `;
+
+			const accordionContainer = targetTextWrapper.querySelector('.catalogo-accordion-container');
+			if (accordionContainer) buildAccordion(accordionContainer);
 			
 			// Após injetar o HTML, processa os embeds do Instagram que estiverem dentro dessa seção
 			const newContentDivInicio = document.getElementById('content-front');
