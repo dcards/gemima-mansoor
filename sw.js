@@ -106,39 +106,20 @@ self.addEventListener('activate', function(event) {
 });
 /* FETCH */
 self.addEventListener('fetch', function(event) {
-	event.respondWith(
-	// Try the cache
-		caches.match(event.request).then(function(response) {
-			//console.log('response 01 = ' + response);
-			if (response) {
-				return response;
-			}
-			return fetch(event.request).then(function(response) {
-				//console.log('response.status = ' + response.status);
-				if (response.status === 404) {
-					// Retorna o index.html com parâmetro de erro
-					return caches.match('./index.html').then(function(indexResponse) {
-						if (indexResponse) {
-							// Cria uma nova resposta com o mesmo corpo, mas com a URL modificada
-							const url = new URL(event.request.url);
-							url.searchParams.set('error', '404');
-							return new Response(indexResponse.body, {
-								status: 200,
-								statusText: 'OK',
-								headers: indexResponse.headers
-							});
-						}
-						// Fallback: retorna 404.html se não tiver index em cache
-						return caches.match('./404.html');
-					});
-				}
-				//console.log('response 02 = ' + response);
-				return response
-			});
-		}).catch(function() {
-			// If both fail, show a generic fallback:
-			//console.log('offline event = ' + event);
-			return caches.match('./offline.html');
-		})
-	);
+    event.respondWith(
+        caches.match(event.request).then(function(response) {
+            if (response) {
+                return response;
+            }
+            return fetch(event.request).then(function(response) {
+                // Se for 404 e NÃO for a requisição da raiz, faz o fallback
+                if (response.status === 404 && event.request.url !== '/') {
+                    return caches.match('./404.html');
+                }
+                return response;
+            });
+        }).catch(function() {
+            return caches.match('./offline.html');
+        })
+    );
 });

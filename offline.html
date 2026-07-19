@@ -4689,7 +4689,9 @@
 			document.getElementById('bg-front').style.backgroundImage = `url('${sectionsData.INICIO.image}')`;
 			updateBackgroundContent('INICIO','bg-front');
 
-			// --- NOVA LÓGICA DE DETECÇÃO DE ERRO 404 ---
+			// ============================================================
+			// LÓGICA DE DETECÇÃO DE ERRO 404 (CORRIGIDA)
+			// ============================================================
 			const params = new URLSearchParams(window.location.search);
 			const pathname = window.location.pathname;
 			const errorParam = params.get('error');
@@ -4699,7 +4701,6 @@
 			function show404() {
 				if (sectionsData.ERRO_404) {
 					changeContent('ERRO_404', true, true);
-					// Remove o parâmetro error da URL (se existir) e limpa a URL
 					const cleanUrl = new URL(window.location);
 					cleanUrl.searchParams.delete('error');
 					cleanUrl.searchParams.delete('section');
@@ -4707,8 +4708,8 @@
 				}
 			}
 
-			// Caso 1: veio com error=404 (proveniente do Service Worker)
-			if (errorParam === '404') {
+			// Caso 1: veio com error=404 (proveniente do Service Worker) e NÃO é a raiz
+			if (errorParam === '404' && pathname !== '/' && pathname !== '/index.html') {
 				show404();
 				return;
 			}
@@ -4716,7 +4717,6 @@
 			// Caso 2: caminho não é a raiz nem index.html, e NÃO tem parâmetro section válido
 			const isValidPath = pathname === '/' || pathname === '/index.html' || pathname === '';
 			if (!isValidPath) {
-				// Se não tiver parâmetro section, ou se tiver mas a seção não existe
 				if (!sectionParam || !sectionsData[sectionParam]) {
 					show404();
 					return;
