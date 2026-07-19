@@ -4551,15 +4551,28 @@
 		});
 
 		window.addEventListener('popstate', function(event) {
-			const section = event.state ? event.state.section : null;
-			if (section && sectionsData[section]) {
+			// Obtém a seção a partir do estado
+			let section = event.state && event.state.section ? event.state.section : null;
+
+			// Se não houver estado, define como INICIO e corrige a URL
+			if (!section) {
+				section = 'INICIO';
+				// Atualiza a URL para manter consistência (replaceState)
+				const url = new URL(window.location);
+				url.searchParams.set('section', 'INICIO');
+				history.replaceState({ section: 'INICIO' }, '', url.toString());
+			}
+
+			// Verifica se a seção existe
+			if (sectionsData[section]) {
 				_fromPopState = true;
-				changeContent(section, true);
+				// replace=true para não adicionar novo estado, skipFlip=false para manter a alternância
+				changeContent(section, true, false);
 				_fromPopState = false;
 			} else {
-				// Se não houver estado, volta para a seção inicial
+				// Fallback: se a seção não for válida, vai para INICIO
 				_fromPopState = true;
-				changeContent('INICIO', true);
+				changeContent('INICIO', true, false);
 				_fromPopState = false;
 			}
 		});
