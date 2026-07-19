@@ -4550,31 +4550,31 @@
 			}
 		});
 
+		// ============================================================
+		// EVENTO popstate – CORRIGIDO
+		// ============================================================
 		window.addEventListener('popstate', function(event) {
-			// Obtém a seção a partir do estado
 			let section = event.state && event.state.section ? event.state.section : null;
 
-			// Se não houver estado, define como INICIO e corrige a URL
+			// Se não houver estado, assume INICIO e corrige a URL
 			if (!section) {
 				section = 'INICIO';
-				// Atualiza a URL para manter consistência (replaceState)
 				const url = new URL(window.location);
 				url.searchParams.set('section', 'INICIO');
 				history.replaceState({ section: 'INICIO' }, '', url.toString());
 			}
 
-			// Verifica se a seção existe
-			if (sectionsData[section]) {
-				_fromPopState = true;
-				// replace=true para não adicionar novo estado, skipFlip=false para manter a alternância
-				changeContent(section, true, false);
-				_fromPopState = false;
-			} else {
-				// Fallback: se a seção não for válida, vai para INICIO
-				_fromPopState = true;
-				changeContent('INICIO', true, false);
-				_fromPopState = false;
+			// Verifica se a seção existe, senão fallback para INICIO
+			if (!sectionsData[section]) {
+				section = 'INICIO';
+				const url = new URL(window.location);
+				url.searchParams.set('section', 'INICIO');
+				history.replaceState({ section: 'INICIO' }, '', url.toString());
 			}
+
+			_fromPopState = true;
+			changeContent(section, true, false); // replace=true, skipFlip=false
+			_fromPopState = false;
 		});
 
         // Função de controle do Overlay (não gera classe ativa no ícone de reticências)
@@ -4786,11 +4786,22 @@
 				// Troca o conteúdo sem virar o cartão (skipFlip = true)
 				changeContent(initialSection, true, true);
 			} else {
-				// Atualiza a URL com section=INICIO (se não houver)
+				// ============================================================
+				// GARANTE QUE O ESTADO INICIAL TENHA 'section'
+				// ============================================================
 				const url = new URL(window.location);
 				if (!url.searchParams.has('section')) {
 					url.searchParams.set('section', 'INICIO');
 					history.replaceState({ section: 'INICIO' }, '', url.toString());
+				} else {
+					// Se já tem section, garante que o estado também tenha essa informação
+					const currentSection = url.searchParams.get('section');
+					if (currentSection && sectionsData[currentSection]) {
+						// Se o estado atual for null (caso de acesso direto), define-o
+						if (!history.state || !history.state.section) {
+							history.replaceState({ section: currentSection }, '', url.toString());
+						}
+					}
 				}
 				// Não chama changeContent para evitar flip desnecessário
 			}

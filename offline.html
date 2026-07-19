@@ -4551,31 +4551,31 @@
 			}
 		});
 
+		// ============================================================
+		// EVENTO popstate – CORRIGIDO
+		// ============================================================
 		window.addEventListener('popstate', function(event) {
-			// Obtém a seção a partir do estado
 			let section = event.state && event.state.section ? event.state.section : null;
 
-			// Se não houver estado, define como INICIO e corrige a URL
+			// Se não houver estado, assume INICIO e corrige a URL
 			if (!section) {
 				section = 'INICIO';
-				// Atualiza a URL para manter consistência (replaceState)
 				const url = new URL(window.location);
 				url.searchParams.set('section', 'INICIO');
 				history.replaceState({ section: 'INICIO' }, '', url.toString());
 			}
 
-			// Verifica se a seção existe
-			if (sectionsData[section]) {
-				_fromPopState = true;
-				// replace=true para não adicionar novo estado, skipFlip=false para manter a alternância
-				changeContent(section, true, false);
-				_fromPopState = false;
-			} else {
-				// Fallback: se a seção não for válida, vai para INICIO
-				_fromPopState = true;
-				changeContent('INICIO', true, false);
-				_fromPopState = false;
+			// Verifica se a seção existe, senão fallback para INICIO
+			if (!sectionsData[section]) {
+				section = 'INICIO';
+				const url = new URL(window.location);
+				url.searchParams.set('section', 'INICIO');
+				history.replaceState({ section: 'INICIO' }, '', url.toString());
 			}
+
+			_fromPopState = true;
+			changeContent(section, true, false); // replace=true, skipFlip=false
+			_fromPopState = false;
 		});
 
         // Função de controle do Overlay (não gera classe ativa no ícone de reticências)
@@ -4680,14 +4680,13 @@
         }
 
 		window.onload = () => {
-			// Pré-carrega imagens (mantido)
+			// Pré-carrega imagens
 			preloadImages();
 
-			// Referência ao container de conteúdo da face frontal
 			const targetTextWrapper = document.getElementById('content-front');
-			const socialMediaAuxHTML = socialMediaHTML; // definido anteriormente
+			const socialMediaAuxHTML = socialMediaHTML;
 
-			// Monta o conteúdo inicial (INICIO) – será substituído se houver 404
+			// Conteúdo inicial (será sobrescrito se houver 404)
 			document.getElementById('content-front').innerHTML = `
 				${getOfflineMessage()}
 				<h2>${sectionsData.INICIO.title}</h2>
@@ -4695,47 +4694,38 @@
 					<h3>${sectionsData.INICIO.subtitle}</h3>
 					<p>${sectionsData.INICIO.content}</p>
 					${socialMediaAuxHTML}
-					${footerHTML} 
+					${footerHTML}
 				</article>
 			`;
 
-			// Constrói o accordion do catálogo, se existir
+			// Inicializa accordion, embeds, etc.
 			const accordionContainer = targetTextWrapper.querySelector('.catalogo-accordion-container');
 			if (accordionContainer) buildAccordion(accordionContainer);
-
-			// Processa embeds de Instagram e Facebook
 			if (window.processInstagramEmbeds) window.processInstagramEmbeds(document.getElementById('content-front'));
 			if (window.processFacebookEmbeds) window.processFacebookEmbeds(document.getElementById('content-front'));
-
-			// Exibe o ano no rodapé
 			showcopyleftyear();
 
-			// Define a imagem/vídeo de fundo da face frontal
 			document.getElementById('bg-front').style.backgroundImage = `url('${sectionsData.INICIO.image}')`;
 			updateBackgroundContent('INICIO', 'bg-front');
 
 			// ============================================================
-			// LÓGICA DE DETECÇÃO DE ERRO 404 – CORRIGIDA E ROBUSTECIDA
+			// LÓGICA DE DETECÇÃO DE ERRO 404 – CORRIGIDA
 			// ============================================================
 			const params = new URLSearchParams(window.location.search);
 			const pathname = window.location.pathname;
 			const errorParam = params.get('error');
 			const sectionParam = params.get('section');
 
-			// Garante que a seção ERRO_404 exista (fallback)
+			// Garante que ERRO_404 exista
 			if (!sectionsData.ERRO_404) {
 				sectionsData.ERRO_404 = {
 					title: 'Página não encontrada',
 					subtitle: 'O conteúdo que você procura não está disponível.',
 					image: './imgs/gemima-m-mansoor-foto-16.jpeg',
-					content: `
-						<p><b>Volte para a página inicial.</b></p>
-						<p><a href="./">Clique aqui</a></p>
-					`
+					content: `<p><b>Volte para a página inicial.</b></p><p><a href="./">Clique aqui</a></p>`
 				};
 			}
 
-			// Função para exibir a página de erro 404
 			function show404() {
 				changeContent('ERRO_404', true, true);
 				const cleanUrl = new URL(window.location);
@@ -4744,50 +4734,36 @@
 				history.replaceState({ section: 'ERRO_404' }, '', cleanUrl.toString());
 			}
 
-			// Caminhos considerados válidos (raiz do site)
 			const validPaths = ['/', '/index.html', '/gemima-mansoor/', '/gemima-mansoor/index.html', ''];
 			const isValidPath = validPaths.includes(pathname) || pathname === '/';
 
-			// Caso 1: parâmetro error=404 explícito
-			if (errorParam === '404') {
+			// Casos de erro 404
+			if (errorParam === '404' || (!isValidPath && !sectionParam) || (sectionParam && !sectionsData[sectionParam])) {
 				show404();
 				return;
 			}
 
-			// Caso 2: caminho não é raiz E não há parâmetro section válido
-			if (!isValidPath && !sectionParam) {
-				show404();
-				return;
-			}
-
-			// Caso 3: parâmetro section existe, mas a seção não está definida
-			if (sectionParam && !sectionsData[sectionParam]) {
-				show404();
-				return;
-			}
-
-			// --- Se chegou aqui, carrega a seção normalmente ---
+			// ============================================================
+			// DETERMINA A SEÇÃO ATUAL E DEFINE O ESTADO INICIAL
+			// ============================================================
 			const initialSection = sectionParam || 'INICIO';
+			const url = new URL(window.location);
+			url.searchParams.set('section', initialSection);
 
+			// **FORÇA** a definição do estado com replaceState, independentemente do estado anterior
+			history.replaceState({ section: initialSection }, '', url.toString());
+
+			// Se a seção não for INICIO, carrega o conteúdo sem virar o cartão
 			if (initialSection !== 'INICIO') {
-				// Troca o conteúdo sem virar o cartão (skipFlip = true)
 				changeContent(initialSection, true, true);
 			} else {
-				// Atualiza a URL com section=INICIO (se não houver)
-				const url = new URL(window.location);
-				if (!url.searchParams.has('section')) {
-					url.searchParams.set('section', 'INICIO');
-					history.replaceState({ section: 'INICIO' }, '', url.toString());
-				}
-				// Não chama changeContent para evitar flip desnecessário
+				// Já está carregado, mas garante que a URL e o estado estão corretos
+				// (não chama changeContent para não virar o cartão)
 			}
 
-			// ============================================================
-			// Inicializa carrosséis, marca ícone ativo e outros
-			// ============================================================
+			// Inicializa carrosséis e marca o ícone ativo
 			initCarousels();
-			const initialLinks = document.querySelectorAll(`.nav-icons a[onclick*="'INICIO'"]`);
-			initialLinks.forEach(link => link.classList.add('nav-active'));
+			document.querySelectorAll(`.nav-icons a[data-section="${initialSection}"]`).forEach(el => el.classList.add('nav-active'));
 			showcopyleftyear();
 		};
     </script>
