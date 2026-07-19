@@ -40,7 +40,6 @@
 	<link rel="icon" href="https://dcards.github.io/gemima-mansoor/favicon/favicon-96x96.png" sizes="96x96" type="image/png"/>
 	<link rel="icon" href="https://dcards.github.io/gemima-mansoor/favicon/favicon.svg" type="image/svg+xml"/>
 	<link rel="apple-touch-icon" sizes="180x180" href="https://dcards.github.io/gemima-mansoor/favicon/apple-touch-icon.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="https://dcards.github.io/gemima-mansoor/favicon/apple-touch-icon.png" />
 	<meta name="apple-mobile-web-app-title" content="Gemima M Mansoor | Terapeuta Corporal Integrativa" />
 
 	<!-- CANONICAL -->
@@ -2498,6 +2497,190 @@
 		.accordion-item.open .accordion-header i {
 			transform: rotate(180deg);
 		}
+		/* ACCORDION REFEITO */
+		.accordion-header {
+			background: rgba(0,0,0,0.7);
+			padding: 1rem 1.2rem;
+			cursor: pointer;
+			display: grid;
+			grid-template-columns: 1fr auto; /* título | coluna direita (valor + seta) */
+			align-items: stretch;
+			gap: 0 1rem;
+			font-weight: 600;
+			color: #D4AF37;
+			border-bottom: 1px solid transparent;
+			transition: 0.2s;
+		}
+		.accordion-header:hover {
+			background: rgba(212,175,55,0.2);
+		}
+
+		/* Área do título – alinhado ao topo e à esquerda */
+		.accordion-title-area {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: flex-start;
+			min-width: 0;
+		}
+		.accordion-title {
+			font-weight: 600;
+			color: #D4AF37;
+			word-break: break-word;
+			white-space: normal;
+			line-height: 1.3;
+			text-align: left;
+		}
+		/* Coluna direita – empilha valor e seta */
+		.accordion-right-area {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-width: fit-content;
+			gap: 0.1rem;
+		}
+		/* Área do valor – centralizado */
+		.accordion-value-area {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
+		/*
+		.accordion-badge {
+			background: var(--gold-primary, #D4AF37);
+			color: #0A0A0A;
+			padding: 0.1rem 0.6rem;
+			border-radius: 20px;
+			font-size: 0.75rem;
+			font-weight: 700;
+			white-space: nowrap;
+		}
+		*/
+		.accordion-badge {
+			background: unset;
+			color: var(--icon-color);
+			padding: 0.1rem 0.6rem;
+			/* border-radius: 20px; */
+			/* border: 2px solid #c99e50; */
+			/* border-right: 1px solid #c99e50; */
+			font-size: 0.75em;
+			font-weight: 700;
+			white-space: nowrap;
+		}
+		/* Área da seta – centralizada */
+		.accordion-icon-area {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
+		.accordion-header i {
+			font-size: 1.2rem;
+			transition: transform 0.3s;
+		}
+		.accordion-item.open .accordion-header i {
+			transform: rotate(180deg);
+		}
+		/* Quando o item está aberto, a seta gira */
+		.accordion-item.open .accordion-header i {
+			transform: rotate(180deg);
+		}
+		/* Call to action dentro do preview */
+		.accordion-cta {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			margin-top: 0.6rem;
+			color: var(--call-to-action-link, #D4AF37);
+			font-size: 0.85rem;
+			font-weight: 500;
+			opacity: 0.9;
+			transition: opacity 0.2s;
+		}
+		.accordion-cta i {
+			font-size: 0.9rem;
+		}
+		.accordion-item.open .accordion-cta {
+			display: none; /* some quando o conteúdo é expandido */
+		}
+		.accordion-preview {
+			padding: 0.8rem 1.2rem;
+			color: #f0f0f0;
+			font-style: italic;
+			opacity: 0.9;
+			border-top: 1px solid rgba(255,255,255,0.1);
+			display: block;
+		}
+		/* ========== SEÇÃO VALORES (SEM ACCORDION) ========== */
+		.valores-wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			margin-top: 1rem;
+		}
+		.valores-item {
+			border: 1px solid rgba(212, 175, 55, 0.3);
+			border-radius: 16px;
+			background: rgba(0, 0, 0, 0.4);
+			backdrop-filter: blur(4px);
+			overflow: hidden;
+			transition: border-color 0.3s ease;
+		}
+		.valores-item:hover {
+			border-color: var(--gold-primary, #D4AF37);
+		}
+		.valores-header {
+			background: rgba(0, 0, 0, 0.7);
+			padding: 1rem 1.2rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 0.5rem 1rem;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		}
+		.valores-title {
+			font-weight: 600;
+			color: #D4AF37;
+			font-size: 1rem;
+			word-break: break-word;
+		}
+		.valores-badge {
+			background: var(--gold-primary, #D4AF37);
+			color: #0A0A0A;
+			padding: 0.1rem 0.6rem;
+			border-radius: 20px;
+			font-size: 0.75rem;
+			font-weight: 700;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+		.valores-content {
+			padding: 0.8rem 1.2rem;
+			color: #f0f0f0;
+		}
+		.valores-content p,
+		.valores-content ul,
+		.valores-content li {
+			color: #f0f0f0;
+		}
+		.valores-content ul {
+			padding-left: 1.5rem;
+			margin-bottom: 0.5rem;
+		}
+		.valores-content ul li {
+			line-height: 1.6;
+		}
+		.valores-content p {
+			line-height: 1.6;
+			margin-bottom: 0.5rem;
+		}
+		.valores-content p:last-child,
+		.valores-content ul:last-child {
+			margin-bottom: 0;
+		}
 
 		.faq-item {
 			/*margin-bottom: 1rem;*/
@@ -3084,6 +3267,59 @@
 		.mj-highlight-item p span {
 			color: #d0c8b8;
 		}
+
+		/* ===== ÍCONE HOME – ESTILO SEMELHANTE AO NAV-ICONS ===== */
+		.home-icon-wrapper {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 8px;
+		}
+		.home-icon-wrapper a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 28px;
+			height: 28px;
+			border-radius: 50%;
+			background-color: rgba(40, 12, 9, 0.8);
+			border: 2px solid #c99e50;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			cursor: pointer;
+			position: relative;
+		}
+		.home-icon-wrapper a i {
+			background-image: linear-gradient(145deg, #e9b56a, #a36415);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			font-size: 0.8em;
+			transition: all 0.3s ease;
+		}
+		.home-icon-wrapper a:hover {
+			transform: scale(1.1);
+			box-shadow: 0 0 12px rgba(229, 192, 139, 0.4);
+		}
+		.home-icon-wrapper a:hover i {
+			background-image: linear-gradient(145deg, #f5d79a, #c98a2a);
+		}
+		.language-selector-container {
+			pointer-events: auto;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			width: 100%;
+			margin-top: 10px;
+			position: relative;
+			transform: translateZ(50px);
+			z-index: 100;
+			cursor: pointer;
+			justify-content: left
+		}
+		.flag-link img {
+			margin-top: 3px;
+		}
 	</style>
 
 	<script type="application/ld+json">
@@ -3112,9 +3348,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		
 	<script>
-		//if (navigator.onLine === false) {
-		//	location.replace("./offline.html");
-		//}
+		if (navigator.onLine === false) {
+			location.replace("./offline.html");
+		}
 	</script>
 </head>
 <body>
@@ -3136,6 +3372,12 @@
                             <img src="./imgs/logo-horizontal-negativo-gemima-m-mansoor.png" alt="Logo">
                         </div>
 						<div class="language-selector-container">
+							<!-- Ícone Home (novo) -->
+							<div class="home-icon-wrapper">
+								<a href="./" onclick="changeContent('INICIO'); return false;" title="Página inicial">
+									<i class="fas fa-home"></i>
+								</a>
+							</div>
 							<div class="flags-wrapper">
 								<a href="javascript:void(0);" onclick="translateLanguage('en')" class="flag-link flag-en" title="English">
 									<img src="https://flagcdn.com/16x12/gb.png" alt="English">
@@ -3191,10 +3433,10 @@
 							</ul>
 						</div>
                         <ul class="nav-icons">
-                            <li><a href="#" onclick="changeContent('SOBRE')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
-                            <li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos"><i class="fa-solid fa-address-book"></i></a></li>
-                            <li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
-                            <li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
+							<li><a href="#" onclick="changeContent('SOBRE')" title="Experiências" data-section="SOBRE"><i class="fa-solid fa-info"></i></a></li>
+							<li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos" data-section="CONTATOS"><i class="fa-solid fa-address-book"></i></a></li>
+							<li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
+							<li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
                         </ul>
                     </aside>
                 </div>
@@ -3208,6 +3450,12 @@
                             <img src="./imgs/logo-horizontal-negativo-gemima-m-mansoor.png" alt="Logo">
                         </div>
 						<div class="language-selector-container">
+							<!-- Ícone Home (novo) -->
+							<div class="home-icon-wrapper">
+								<a href="./" onclick="changeContent('INICIO'); return false;" title="Página inicial">
+									<i class="fas fa-home"></i>
+								</a>
+							</div>
 							<div class="flags-wrapper">
 								<a href="javascript:void(0);" onclick="translateLanguage('en')" class="flag-link flag-en" title="English">
 									<img src="https://flagcdn.com/16x12/gb.png" alt="English">
@@ -3263,10 +3511,10 @@
 							</ul>
 						</div>
                         <ul class="nav-icons">
-                            <li><a href="#" onclick="changeContent('SOBRE')" title="Experiências"><i class="fa-solid fa-info"></i></a></li>
-                            <li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos"><i class="fa-solid fa-address-book"></i></a></li>
-                            <li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
-                            <li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
+                            <li><a href="#" onclick="changeContent('SOBRE')" title="Experiências" data-section="SOBRE"><i class="fa-solid fa-info"></i></a></li>
+							<li><a href="#" onclick="changeContent('CONTATOS')" title="Contatos" data-section="CONTATOS"><i class="fa-solid fa-address-book"></i></a></li>
+							<li><a href="#" onclick="toggleOverlay()" title="Mais links"><i class="fa-solid fa-ellipsis"></i></a></li>
+							<li><a href="#" class="share-trigger" title="Compartilhar"><i class="fas fa-share-alt"></i></a></li>
                         </ul>
                     </aside>
                 </div>
@@ -3281,6 +3529,7 @@
 			<li onclick="changeContent('INICIO')">Página inicial</li>
 			<li onclick="changeContent('SOBRE')">Sobre Gemima M Mansoor</li>
 			<!--li onclick="changeContent('EXPERIENCIAS')">Experiências</li-->
+			<li onclick="changeContent('VALORES')">Valores</li>
 			<li onclick="changeContent('BENEFICIOS')">Benefícios</li>
 			<!-- li onclick="changeContent('GALERIA')">Galeria</li -->
 			<li onclick="changeContent('EXCLUSIVO')">Conteúdo Exclusivo</li>
@@ -3487,6 +3736,21 @@
     <script>
         const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
+		// Função que gera o HTML da seção VALORES (sem accordion)
+		function buildValoresHTML() {
+			let html = '<div class="valores-wrapper">';
+			catalogoItens.forEach(item => {
+				html += `<div class="valores-item">
+							<div class="valores-header">
+								<span class="valores-title">${item.titulo}</span>
+							</div>
+							<div class="valores-content">${item.conteudo}</div>
+						</div>`;
+			});
+			html += '</div>';
+			return html;
+		}
+
 		let socialMediaHTML = `
 			<article class="social-grid-wrapper">
 				<p>Conecte-se comigo agora:</p>
@@ -3543,18 +3807,41 @@
 			</div>
 		`;
 
+		function getOfflineMessage() {
+			// =============================================
+			// ÚNICA MODIFICAÇÃO PARA A PÁGINA OFFLINE
+			// =============================================
+			// Sempre exibe a mensagem, pois esta página é servida apenas quando offline
+			return `<p style="color: #D6BA84; font-size: .7em; margin-bottom: 0.5em;">🔴 Para utilizar todos os recursos, você precisa estar conectado à internet.</p>`;
+		}
+
 		const sectionsData = {
-			INICIO_BKP: {
-				title: "Gemima M Mansoor",
-				subtitle: "Terapia Corporal Integrativa",
-				image: "./imgs/gemima-m-mansoor-background.png",
+            ERRO_404: { 
+				title: "ERRO 404", 
+				subtitle: "Esta página não foi encontrada!", 
+				image: "./imgs/gemima-m-mansoor-foto-16.jpeg",
 				video: "",
 				content: `
-							<p><strong>Bem-vindo ao espaço de cuidado e consciência corporal.</strong></p>
-							<p>Algumas experiências não são feitas para acelerar o corpo, mas para desacelerar a mente.</p>
-							<p>Meu trabalho é conduzir processos de consciência corporal, presença, liberação e reconexão.</p>
-							<p class="line-image line-image-marginbottom0"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
-							<p class="bottom-text">CORPO · MENTE · PRESENÇA · ESSÊNCIA</p>
+					<p><b>Volte para a página inicial.</b></p>
+					<p><a href="./" alt="Clique aqui">Clique aqui</a></p>
+				` 
+			},
+			INICIO: {
+				title: "Experiências Terapêuticas",
+				subtitle: "Corpo, mente e presença",
+				image: "./imgs/gemima-m-mansoor-foto-16.jpeg",
+				video: "",
+				content: `
+							<p>Toque nas experiências abaixo para ver <strong>detalhes</strong>, <strong>valores</strong> e <strong>duração</strong>.</p>
+							<div class="catalogo-accordion-container"></div>
+							<p style="margin-top: 1em;">Para fazer download do catálogo, <a href="https://canva.link/b84pgyskz65k2n3" target="_blank" title="Download do Catálogo">clique aqui</a>.</p>
+							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
+							<p>Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
+							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
+							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
+								<p>Deseja conhecer uma experiência personalizada?</p>
+								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Experiências: Agendar Atendimento">Agendar Atendimento</a>
+							</div>
 				`
 			},
 
@@ -3601,22 +3888,12 @@
 				`
 			},
 
-			INICIO: {
-				title: "Experiências Terapêuticas",
-				subtitle: "Corpo, mente e presença",
+			VALORES: {
+				title: "Valores",
+				subtitle: "Conheça os investimentos para cada experiência",
 				image: "./imgs/gemima-m-mansoor-foto-16.jpeg",
 				video: "",
-				content: `
-							<p>Toque nas experiências abaixo para ver <strong>detalhes</strong>, <strong>valores</strong> e <strong>duração</strong>.</p>
-							<p>Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
-							<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
-							<div class="catalogo-accordion-container"></div>
-							<p style="margin-top: 1em;">Para fazer download do catálogo, <a href="https://canva.link/b84pgyskz65k2n3" target="_blank" title="Download do Catálogo">clique aqui</a>.</p>
-							<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
-								<p>Deseja conhecer uma experiência personalizada?</p>
-								<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Experiências: Agendar Atendimento">Agendar Atendimento</a>
-							</div>
-				`
+				content: "" // será preenchido dinamicamente
 			},
 
 			BENEFICIOS: {
@@ -3946,73 +4223,97 @@
 
 		// Catálogo em accordion
 		const catalogoItens = [
-			{ titulo: "Massagem Tântrica", preview: "Experiência sensorial que desperta energia vital, com respiração consciente e massagem Lingam/Yoni.", conteudo: `
-				<p>Deixe-se conduzir por uma experiência intensa, onde cada toque desperta novas sensações...</p>
-				<p>A massagem tântrica é um convite irresistível ao prazer, ao abandono e à entrega total.</p>
-				<p><strong>Como é a sessão?</strong></p>
-				<ul>
-					<li>Iniciamos com uma conversa para entender a sua busca e limites;</li>
-					<li>Fazemos uma respiração consciente, importante para o relaxamento e conexão;</li>
-					<li>Seguimos com um toque sensorial que transcende o corpo e desperta sua energia sexual;</li>
-					<li>Massagem genital (Lingam ou Yoni), uma técnica manual que ativa todas as regiões erógenas da área íntima, proporcionando prazer intenso e orgasmos profundamente transformadores.</li>
-				</ul>
-				<ul>
-					<li><strong>Duração total:</strong> 1h</li>
-					<li><strong>Investimento:</strong> R$ 500,00</li>
-				</ul>
-				<ul>
-					<li><strong>Pacote com 5 sessões:</strong> R$ 2.000,00</li>
-					<li><strong>Somente Lingam (30 minutos):</strong> R$ 300,00</li>
-				</ul>
-				<p><i>Permita-se... sem pressa, sem julgamentos. Apenas você, seu corpo e o prazer de se entregar.</i></p>
-				<p><strong>Importante:</strong> A massagem é uma experiência sensorial e não envolve qualquer tipo de sexo.</p>
+			{ 
+				titulo: "Massagem Tântrica", 
+				preview: "Experiência sensorial que desperta energia vital, com respiração consciente e massagem Lingam/Yoni.",
+				valor: "R$ 500",
+				conteudo: `
+							<p>Deixe-se conduzir por uma experiência intensa, onde cada toque desperta novas sensações...</p>
+							<p>A massagem tântrica é um convite irresistível ao prazer, ao abandono e à entrega total.</p>
+							<p><strong>Como é a sessão?</strong></p>
+							<ul>
+								<li>Iniciamos com uma conversa para entender a sua busca e limites;</li>
+								<li>Fazemos uma respiração consciente, importante para o relaxamento e conexão;</li>
+								<li>Seguimos com um toque sensorial que transcende o corpo e desperta sua energia sexual;</li>
+								<li>Massagem genital (Lingam ou Yoni), uma técnica manual que ativa todas as regiões erógenas da área íntima, proporcionando prazer intenso e orgasmos profundamente transformadores.</li>
+							</ul>
+							<ul>
+								<li><strong>Duração total:</strong> 1h</li>
+								<li><strong>Investimento:</strong> R$ 500,00</li>
+							</ul>
+							<ul>
+								<li><strong>Pacote com 5 sessões:</strong> R$ 2.000,00</li>
+								<li><strong>Somente Lingam (30 minutos):</strong> R$ 300,00</li>
+							</ul>
+							<p><i>Permita-se... sem pressa, sem julgamentos. Apenas você, seu corpo e o prazer de se entregar.</i></p>
+							<p><strong>Importante:</strong> A massagem é uma experiência sensorial e não envolve qualquer tipo de sexo.</p>
 			` },
-			{ titulo: "Massagem Nuru", preview: "A massagista usa todo o corpo deslizando suavemente sobre o cliente.", conteudo: `
-				<p>Deixe-se envolver por uma experiência intensa e provocante. A massagista usa todo o corpo — seios, abdômen, coxas, braços — deslizando suavemente sobre o cliente. O contato pele com pele desperta arrepios, sensações elétricas e uma conexão visceral. O ritmo alterna entre o lento e o intenso, o leve e o profundo, conduzindo a energia sexual por todo o corpo.</p>
-				<p>A experiência se conclui com a massagem Lingam, uma técnica sagrada do Tantra que trabalha o órgão masculino como um canal de energia vital.</p>
-				<ul>
-					<li><strong>Duração:</strong> 1h</li>
-					<li><strong>Valor:</strong> R$ 1.000,00</li>
-				</ul>
-				<p><i>Pronto(a) para se entregar a essa experiência única?</i></p>
-				<p><strong>Importante:</strong> A massagem é uma experiência sensorial e não envolve qualquer tipo de sexo.</p>
+			{ 
+				titulo: "Massagem Nuru",
+				preview: "A massagista usa todo o corpo deslizando suavemente sobre o cliente.",
+				valor: "R$ 1.000",
+				conteudo: `
+							<p>Deixe-se envolver por uma experiência intensa e provocante. A massagista usa todo o corpo — seios, abdômen, coxas, braços — deslizando suavemente sobre o cliente. O contato pele com pele desperta arrepios, sensações elétricas e uma conexão visceral. O ritmo alterna entre o lento e o intenso, o leve e o profundo, conduzindo a energia sexual por todo o corpo.</p>
+							<p>A experiência se conclui com a massagem Lingam, uma técnica sagrada do Tantra que trabalha o órgão masculino como um canal de energia vital.</p>
+							<ul>
+								<li><strong>Duração:</strong> 1h</li>
+								<li><strong>Valor:</strong> R$ 1.000,00</li>
+							</ul>
+							<p><i>Pronto(a) para se entregar a essa experiência única?</i></p>
+							<p><strong>Importante:</strong> A massagem é uma experiência sensorial e não envolve qualquer tipo de sexo.</p>
 			` },
-			{ titulo: "Vivência Tântrica Casal", preview: "Reconexão e intimidade para casais, com orientação da terapeuta.", conteudo: `
-				<p>A vivência tântrica para casais é uma experiência criada para aprofundar a conexão, restaurar a intimidade e abrir novos caminhos de presença entre vocês. Em um ambiente seguro e guiado com sensibilidade, o casal aprende a respirar junto, tocar com consciência e acessar um estado de entrega que fortalece o vínculo e renova a energia do relacionamento.</p>
-				<p>Durante a vivência, cada parceiro experimenta o papel de receber e doar, sempre com orientação cuidadosa da terapeuta. A sessão amplia a percepção do corpo, desperta sensorialidade e cria uma comunicação mais profunda — sem pressa, sem performance e sem expectativas externas. É um espaço para reconectar, curar distâncias e resgatar o prazer de estar junto.</p>
-				<p>A experiência tem <strong>duração de até 3 horas</strong>, permitindo que o processo aconteça no tempo do casal, de forma natural e acolhedora.</p>
-				<ul>
-					<li><strong>Valor:</strong> R$ 2.500,00</li>
-				</ul>
+			{ 
+				titulo: "Vivência Tântrica Casal",
+				preview: "Reconexão e intimidade para casais, com orientação da terapeuta.",
+				valor: "R$ 2.500",
+				conteudo: `
+							<p>A vivência tântrica para casais é uma experiência criada para aprofundar a conexão, restaurar a intimidade e abrir novos caminhos de presença entre vocês. Em um ambiente seguro e guiado com sensibilidade, o casal aprende a respirar junto, tocar com consciência e acessar um estado de entrega que fortalece o vínculo e renova a energia do relacionamento.</p>
+							<p>Durante a vivência, cada parceiro experimenta o papel de receber e doar, sempre com orientação cuidadosa da terapeuta. A sessão amplia a percepção do corpo, desperta sensorialidade e cria uma comunicação mais profunda — sem pressa, sem performance e sem expectativas externas. É um espaço para reconectar, curar distâncias e resgatar o prazer de estar junto.</p>
+							<p>A experiência tem <strong>duração de até 3 horas</strong>, permitindo que o processo aconteça no tempo do casal, de forma natural e acolhedora.</p>
+							<ul>
+								<li><strong>Valor:</strong> R$ 2.500,00</li>
+							</ul>
 			` },
-			{ titulo: "Vivência Mútua", preview: "Ritual de dar e receber – aprendizado prático com a terapeuta.", conteudo: `
-				<p>A vivência mútua é um ritual exclusivo, criado para quem busca uma experiência profunda de presença, sensorialidade e expansão. A sessão segue a técnica de dar e receber, na qual a terapeuta conduz cada etapa com precisão, elegância e orientação contínua.</p>
-				<p>A vivência começa com uma conversa personalizada, para identificar suas intenções e necessidades. Em seguida, você recebe a massagem para sentir o ritmo, a energia e a profundidade do ritual. Depois, guiado pela terapeuta, você replica a experiência nela, aprendendo a conduzir o toque com consciência e respeito.</p>
-				<p>O processo integra respiração, toque, abertura sensorial, ativação da energia vital e, quando indicado, técnicas específicas como Lingam ou Yoni. Tudo acontece de maneira fluida, acolhedora e estruturada, dentro de um campo seguro e sofisticado. A <strong>duração pode chegar a até 3 horas</strong>, respeitando seu tempo de entrega e evolução.</p>
-				<ul>
-					<li><strong>Vivência Tântrica:</strong> R$ 2.000,00</li>
-					<li><strong>Vivência Nuru:</strong> R$ 3.000,00</li>
-				</ul>
-				<p><strong>Importante:</strong> A massagem é uma experiência sensorial e não envolve qualquer tipo de sexo.</p>
+			{ 
+				titulo: "Vivência Mútua",
+				preview: "Ritual de dar e receber – aprendizado prático com a terapeuta.",
+				valor: "R$ 2.000",
+				conteudo: `
+							<p>A vivência mútua é um ritual exclusivo, criado para quem busca uma experiência profunda de presença, sensorialidade e expansão. A sessão segue a técnica de dar e receber, na qual a terapeuta conduz cada etapa com precisão, elegância e orientação contínua.</p>
+							<p>A vivência começa com uma conversa personalizada, para identificar suas intenções e necessidades. Em seguida, você recebe a massagem para sentir o ritmo, a energia e a profundidade do ritual. Depois, guiado pela terapeuta, você replica a experiência nela, aprendendo a conduzir o toque com consciência e respeito.</p>
+							<p>O processo integra respiração, toque, abertura sensorial, ativação da energia vital e, quando indicado, técnicas específicas como Lingam ou Yoni. Tudo acontece de maneira fluida, acolhedora e estruturada, dentro de um campo seguro e sofisticado. A <strong>duração pode chegar a até 3 horas</strong>, respeitando seu tempo de entrega e evolução.</p>
+							<ul>
+								<li><strong>Vivência Tântrica:</strong> R$ 2.000,00</li>
+								<li><strong>Vivência Nuru:</strong> R$ 3.000,00</li>
+							</ul>
+							<p><strong>Importante:</strong> A massagem é uma experiência sensorial e não envolve qualquer tipo de sexo.</p>
 			` },
-			{ titulo: "Curso VIP", preview: "Imersão individual para aprender fundamentos do Tantra.", conteudo: `
-				<p>O Curso VIP de Massagem Tântrica é uma imersão exclusiva, desenhada para quem busca conhecimento refinado, orientação personalizada e uma experiência de aprendizado que une técnica, presença e sensorialidade. Você recebe um acompanhamento individual, feito sob medida, onde cada detalhe é guiado com precisão e elegância.</p>
-				<p>Nesta estrutura premium, você aprende os fundamentos essenciais do Tantra — respiração, toque consciente, condução da energia e leitura sensorial — sempre com aplicações práticas, seguras e adaptadas ao seu nível de percepção. É um espaço para desenvolver habilidade, expandir a consciência corporal e compreender a essência do Tantra com profundidade e clareza.</p>
-				<p>A experiência é conduzida de forma contínua e atenciosa, garantindo que você finalize o curso não apenas informado, mas transformado, com domínio das técnicas básicas e confiança para aplicá-las.</p>
-				<p><strong>Curso livre - não capacita como terapeuta.</strong></p>
-				<ul>
-					<li><strong>Duração:</strong> 2 horas de acompanhamento individual e personalizado.</li>
-					<li><strong>Investimento:</strong> R$ 1.500,00 + taxa de modelo (se não trouxer)</li>
-				</ul>
+			{ 
+				titulo: "Curso VIP",
+				preview: "Imersão individual para aprender fundamentos do Tantra.",
+				valor: "R$ 1.500",
+				conteudo: `
+							<p>O Curso VIP de Massagem Tântrica é uma imersão exclusiva, desenhada para quem busca conhecimento refinado, orientação personalizada e uma experiência de aprendizado que une técnica, presença e sensorialidade. Você recebe um acompanhamento individual, feito sob medida, onde cada detalhe é guiado com precisão e elegância.</p>
+							<p>Nesta estrutura premium, você aprende os fundamentos essenciais do Tantra — respiração, toque consciente, condução da energia e leitura sensorial — sempre com aplicações práticas, seguras e adaptadas ao seu nível de percepção. É um espaço para desenvolver habilidade, expandir a consciência corporal e compreender a essência do Tantra com profundidade e clareza.</p>
+							<p>A experiência é conduzida de forma contínua e atenciosa, garantindo que você finalize o curso não apenas informado, mas transformado, com domínio das técnicas básicas e confiança para aplicá-las.</p>
+							<p><strong>Curso livre - não capacita como terapeuta.</strong></p>
+							<ul>
+								<li><strong>Duração:</strong> 2 horas de acompanhamento individual e personalizado.</li>
+								<li><strong>Investimento:</strong> R$ 1.500,00 + taxa de modelo (se não trouxer)</li>
+							</ul>
 			` },
-			{ titulo: "Terapia Corporal", preview: "Atendimento premium para restaurar vitalidade e tratar disfunções sexuais.", conteudo: `
-				<p>A Terapia Corporal Integrada é um atendimento premium para homens que desejam restaurar a vitalidade do corpo, reorganizar padrões emocionais e recuperar a naturalidade da resposta sexual. A sessão combina técnicas da terapia tântrica, protocolos de renascimento (rebirthing) e abordagens específicas para traumas e disfunções sexuais masculinas, oferecendo um cuidado profundo, seguro e altamente qualificado.</p>
-				<p>Ao longo de 1 hora, você é conduzido a um estado de presença e desbloqueio corporal, trabalhando respiração, sensibilidade, energia vital e reconhecimento das tensões que interferem na sua performance, no seu prazer e na sua autoconfiança. O processo atua diretamente em questões como ansiedade sexual, dificuldade de ereção, ejaculação precoce, queda de libido, desconexão emocional e traumas que se manifestam no corpo.</p>
-				<p>É um atendimento discreto, técnico e personalizado, onde cada etapa é orientada com precisão, respeito e sigilo absoluto — criando um ambiente seguro para que o corpo possa recuperar seu fluxo natural e sua potência.</p>
-				<ul>
-					<li><strong>Duração:</strong> 1h</li>
-					<li><strong>Valor:</strong> R$ 2.000,00 (pacote 5 sessões)</li>
-				</ul>
+			{ 
+				titulo: "Terapia Corporal",
+				preview: "Atendimento premium para restaurar vitalidade e tratar disfunções sexuais.",
+				valor: "R$ 2.000",
+				conteudo: `
+							<p>A Terapia Corporal Integrada é um atendimento premium para homens que desejam restaurar a vitalidade do corpo, reorganizar padrões emocionais e recuperar a naturalidade da resposta sexual. A sessão combina técnicas da terapia tântrica, protocolos de renascimento (rebirthing) e abordagens específicas para traumas e disfunções sexuais masculinas, oferecendo um cuidado profundo, seguro e altamente qualificado.</p>
+							<p>Ao longo de 1 hora, você é conduzido a um estado de presença e desbloqueio corporal, trabalhando respiração, sensibilidade, energia vital e reconhecimento das tensões que interferem na sua performance, no seu prazer e na sua autoconfiança. O processo atua diretamente em questões como ansiedade sexual, dificuldade de ereção, ejaculação precoce, queda de libido, desconexão emocional e traumas que se manifestam no corpo.</p>
+							<p>É um atendimento discreto, técnico e personalizado, onde cada etapa é orientada com precisão, respeito e sigilo absoluto — criando um ambiente seguro para que o corpo possa recuperar seu fluxo natural e sua potência.</p>
+							<ul>
+								<li><strong>Duração:</strong> 1h</li>
+								<li><strong>Valor:</strong> R$ 2.000,00 (pacote 5 sessões)</li>
+							</ul>
 			` }
 		];
 
@@ -4032,35 +4333,39 @@
 			catalogoItens.forEach((item, idx) => {
 				html += `<div class="accordion-item" data-acc-idx="${idx}">
 							<div class="accordion-header" data-idx="${idx}">
-								<span>${item.titulo}</span>
-								<i class="fas fa-chevron-down"></i>
+								<div class="accordion-title-area">
+									<span class="accordion-title">${item.titulo}</span>
+								</div>
+								<div class="accordion-right-area">
+									<div class="accordion-value-area">
+										${item.valor ? `<span class="accordion-badge">${item.valor}</span>` : ''}
+									</div>
+									<div class="accordion-icon-area">
+										<i class="fas fa-chevron-down"></i>
+									</div>
+								</div>
 							</div>
-							<div class="accordion-preview">${item.preview}<p style="color: var(--call-to-action-link);">Clique no tópico para saber mais.</p></div>
+							<div class="accordion-preview">
+								${item.preview}
+								<div class="accordion-cta">
+									<span>Clique no tópico para saber mais.</span>
+								</div>
+							</div>
 							<div class="accordion-full">${item.conteudo}</div>
 						</div>`;
 			});
 			html += '</div>';
 			containerElement.innerHTML = html;
 
-			// Fecha todos os itens (remove classe open)
-			function closeAll() {
-				containerElement.querySelectorAll('.accordion-item').forEach(item => {
-					item.classList.remove('open');
-				});
-			}
-
-			// Abre apenas o item clicado
+			// Lógica de toggle (fecha todos, abre o clicado)
 			containerElement.querySelectorAll('.accordion-header').forEach(header => {
 				header.addEventListener('click', function(e) {
 					const parentItem = this.closest('.accordion-item');
 					const isOpen = parentItem.classList.contains('open');
-					
-					if (isOpen) {
-						// Fecha este item
-						parentItem.classList.remove('open');
-					} else {
-						// Fecha todos e abre apenas o atual
-						//closeAll();
+					containerElement.querySelectorAll('.accordion-item').forEach(item => {
+						item.classList.remove('open');
+					});
+					if (!isOpen) {
 						parentItem.classList.add('open');
 					}
 				});
@@ -4145,44 +4450,50 @@
 		}
 
         let isFlipped = false;
+		let _fromPopState = false;
         const card = document.getElementById('card');
 
         // FUNÇÃO CENTRAL DE TROCA DE CONTEÚDO E SINCRONIZAÇÃO DE CLASSES
-        function changeContent(key) {
-            if(!sectionsData[key]) return;
+		function changeContent(key, replace = false, skipFlip = false) {
+			//if (!sectionsData[key]) return;
+			if (!sectionsData[key]) {
+				key = 'ERRO_404';
+				// Se nem a seção de erro existir, volta para INICIO
+				if (!sectionsData[key]) key = 'INICIO';
+			}
 
-            // Determina qual face atualizar (a que está escondida para girar)
-            const targetSide = isFlipped ? 'front' : 'back';
+			const targetSide = isFlipped ? 'front' : 'back';
 			const targetTextWrapper = document.getElementById(`content-${targetSide}`);
-			//console.log(key);
 			let socialMediaAuxHTML = socialMediaHTML;
-			/*
-			let socialMediaAuxHTML = ``;
-			if (key != 'INICIO') {
-				socialMediaAuxHTML = socialMediaHTML;
-				//console.log('aqui!');
-				if (document.getElementById(`content-${targetSide}`).classList.contains('marginTop26dvh')) {
-					document.getElementById(`content-${targetSide}`).classList.remove('marginTop26dvh');
-				}
+
+			let contentHTML = sectionsData[key].content;
+			// Se for a seção VALORES, gera o HTML dinamicamente
+			if (key === 'VALORES') {
+				contentHTML = buildValoresHTML();
+				contentHTML = `
+								${contentHTML}
+								<p style="margin-top: 1em;">Para fazer download do catálogo, <a href="https://canva.link/b84pgyskz65k2n3" target="_blank" title="Download do Catálogo">clique aqui</a>.</p>
+								<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
+								<p>Cada experiência foi desenvolvida para atender necessidades específicas de autoconhecimento, expansão sensorial, relaxamento profundo e desenvolvimento da consciência corporal.</p>
+								<p class="line-image"><img src="./imgs/logo-flower-gemima-m-mansoor.png"/><span class="bottom-line"></span></p>
+								<div style="background:rgba(0,0,0,0.5); padding:1em; border-radius:20px; text-align:center;">
+									<p>Deseja conhecer uma experiência personalizada?</p>
+									<a href="https://wa.me/5511910883252?text=Olá%2C%20gostaria%20de%20agendar%20uma%20sessão%20de%20terapia%20corporal" target="_blank" class="btn-form-contato btn-form-contato-02" style="display: inline-block; color: #000; text-decoration: none; font-weight: bold;" title="Experiências: Agendar Atendimento">Agendar Atendimento</a>
+								</div>
+				`;
 			}
-			*/
-			/*
-			if (key === 'INICIO') {
-				document.getElementById(`content-${targetSide}`).classList.add('marginTop26dvh');
-			}
-			*/
+
 			document.getElementById(`content-${targetSide}`).innerHTML = `
-				<p style="color: #D6BA84; font-size: .7em;">Para utilizar todos os recursos, você precisa estar conectado à internet.</p>
+				${getOfflineMessage()}
 				<h2>${sectionsData[key].title}</h2>
 				<article>
 					<h3>${sectionsData[key].subtitle}</h3>
-					<p>${sectionsData[key].content}</p>
+					${contentHTML}
 					${socialMediaAuxHTML}
 					${footerHTML}
 				</article>
 			`;
 
-			// Após injetar, localiza os containers específicos dentro desta face
 			if (key === 'INICIO') {
 				const accordionContainer = targetTextWrapper.querySelector('.catalogo-accordion-container');
 				if (accordionContainer) buildAccordion(accordionContainer);
@@ -4191,50 +4502,64 @@
 				const faqContainer = targetTextWrapper.querySelector('.faq-container');
 				if (faqContainer) buildFAQ(faqContainer);
 			}
-			
-			// Após injetar o HTML, processa os embeds do Instagram que estiverem dentro dessa seção
-			const newContentDiv = document.getElementById(`content-${targetSide}`);
-			if (newContentDiv && window.processInstagramEmbeds) {
-				window.processInstagramEmbeds(newContentDiv);
+
+			if (window.processInstagramEmbeds) window.processInstagramEmbeds(document.getElementById(`content-${targetSide}`));
+			if (window.processFacebookEmbeds) window.processFacebookEmbeds(document.getElementById(`content-${targetSide}`));
+
+			showcopyleftyear();
+			document.getElementById(`bg-${targetSide}`).style.backgroundImage = `url('${sectionsData[key].image}')`;
+			updateBackgroundContent(key, `bg-${targetSide}`);
+
+			setTimeout(() => initCarousels(), 100);
+
+			// Gerencia a classe ativa dos ícones
+			document.querySelectorAll('.nav-icons a').forEach(el => el.classList.remove('nav-active'));
+			document.querySelectorAll(`.nav-icons a[data-section="${key}"]`).forEach(el => {
+				el.classList.add('nav-active');
+			});
+
+			if (!replace) {
+				const state = { section: key };
+				const url = new URL(window.location);
+				url.searchParams.set('section', key);
+				history.pushState(state, '', url.toString());
 			}
-			// Dentro de changeContent, após a injeção do HTML:
-			if (window.processFacebookEmbeds) {
-				window.processFacebookEmbeds(document.getElementById(`content-${targetSide}`));
+
+			if (!skipFlip) {
+				isFlipped = !isFlipped;
+				card.classList.toggle('is-flipped', isFlipped);
 			}
-            showcopyleftyear();
-            document.getElementById(`bg-${targetSide}`).style.backgroundImage = `url('${sectionsData[key].image}')`;
-			//console.log(key);
-			updateBackgroundContent(key,`bg-${targetSide}`);
 
-			// --- CORREÇÃO AQUI: Inicializa o carrossel após o HTML ser injetado ---
-			setTimeout(() => {
-				initCarousels();
-			}, 100); // Pequeno delay para garantir que o DOM renderizou
-            
-            // 1. SINCRONIZAÇÃO: Remove classe ativa de TODOS os nav-icons (front e back)
-            document.querySelectorAll('.nav-icons a').forEach(el => el.classList.remove('nav-active'));
+			document.getElementById('overlay-menu').classList.remove('active');
+		}
 
-            // 2. SINCRONIZAÇÃO: Adiciona classe ativa apenas nos botões que correspondem à chave atual
-            // Buscamos links que tenham no atributo 'onclick' a chamada para a chave específica (ex: 'SOBRE')
-           // const matchingLinks = document.querySelectorAll(`.nav-icons a[onclick*="'${key}'"]`);
-            //matchingLinks.forEach(link => link.classList.add('nav-active'));
-
-            // Executa o giro do cartão
-            isFlipped = !isFlipped;
-            card.classList.toggle('is-flipped', isFlipped);
-            
-            // Fecha o overlay caso esteja aberto
-            document.getElementById('overlay-menu').classList.remove('active');
-
-			// Registra no Analytics
-			/*
-			const overlayMenu = document.getElementById('overlay-menu').classList.contains('active');
-			console.log('overlayMenu = ' + overlayMenu);
-			if (overlayMenu) {
-				sendToAnalytics02(key,'Menus acessados','Card Page - Offline');
+		window.addEventListener('online', () => {
+			const currentSection = new URLSearchParams(window.location.search).get('section') || 'INICIO';
+			if (sectionsData[currentSection]) {
+				changeContent(currentSection, true, true);
 			}
-			*/
-        }
+		});
+
+		window.addEventListener('offline', () => {
+			const currentSection = new URLSearchParams(window.location.search).get('section') || 'INICIO';
+			if (sectionsData[currentSection]) {
+				changeContent(currentSection, true, true);
+			}
+		});
+
+		window.addEventListener('popstate', function(event) {
+			const section = event.state ? event.state.section : null;
+			if (section && sectionsData[section]) {
+				_fromPopState = true;
+				changeContent(section, true);
+				_fromPopState = false;
+			} else {
+				// Se não houver estado, volta para a seção inicial
+				_fromPopState = true;
+				changeContent('INICIO', true);
+				_fromPopState = false;
+			}
+		});
 
         // Função de controle do Overlay (não gera classe ativa no ícone de reticências)
         function toggleOverlay() { 
@@ -4250,40 +4575,7 @@
             // 1. SINCRONIZAÇÃO DOS NAV-ICONS (FRENTE E VERSO)
             const navIconsFront = document.querySelectorAll('.face-front .nav-icons a');
             const navIconsBack = document.querySelectorAll('.face-back .nav-icons a');
-
-            function updateNavActive(index) {
-                // Remove classe ativa de todos os itens em ambas as faces
-                navIconsFront.forEach(el => el.classList.remove('nav-active'));
-                navIconsBack.forEach(el => el.classList.remove('nav-active'));
-
-                // Adiciona classe ativa no item correspondente em ambas as faces
-                if (index !== -1) {
-                    navIconsFront[index].classList.add('nav-active');
-                    navIconsBack[index].classList.add('nav-active');
-                }
-            }
-
-            // Adiciona evento de clique para os itens da frente
-            navIconsFront.forEach((btn, index) => {
-                btn.addEventListener('click', () => updateNavActive(index));
-            });
-			navOverlayMenu.forEach(menuList => {
-                menuList.addEventListener('click', (menuItem) => {
-					const liTexto = menuItem.target.textContent;
-					console.log(liTexto);
-					if (liTexto === 'Sobre Gemima M Mansoor') {
-						updateNavActive(0);
-					}
-					if (liTexto === 'Contatos') {
-						updateNavActive(1);
-					}
-				});
-            });
-
-            // Adiciona evento de clique para os itens do verso
-            navIconsBack.forEach((btn, index) => {
-                btn.addEventListener('click', () => updateNavActive(index));
-            });
+			const navOverlayMenu = document.querySelectorAll('.overlay-list li');
 
             // 2. LÓGICA DE COMPARTILHAMENTO
             const shareTriggers = document.querySelectorAll('.share-trigger');
@@ -4302,7 +4594,7 @@
 							//console.log(shareAuxCount);
 							if (shareAuxCount == 1) {
 								// Registra no Analytics
-								sendToAnalytics02('Compartilhar','Menus acessados','Card Page - Offline');
+								sendToAnalytics02('Compartilhar','Menus acessados','Card Page');
 							}
 						} else {
 							shareAuxCount = 0;
@@ -4334,9 +4626,32 @@
                         });
                     }
 					// Registra no Analytics
-					sendToAnalytics02(platform,'Menu Compartilhar','Card Page - Offline');
+					sendToAnalytics02(platform,'Menu Compartilhar','Card Page');
                 });
             });
+
+			// Remove onclick inline e adiciona listeners centralizados para os ícones de navegação
+			// Adiciona listeners para os ícones de navegação (centralizado)
+			document.querySelectorAll('.nav-icons a').forEach(link => {
+				const onclickAttr = link.getAttribute('onclick');
+				if (onclickAttr) {
+					link.removeAttribute('onclick');
+					// Verifica se é changeContent
+					const match = onclickAttr.match(/changeContent\s*\(\s*['"]([^'"]+)['"]\s*\)/);
+					if (match) {
+						const key = match[1];
+						link.addEventListener('click', (e) => {
+							e.preventDefault();
+							changeContent(key);
+						});
+					} else if (onclickAttr.includes('toggleOverlay')) {
+						link.addEventListener('click', (e) => {
+							e.preventDefault();
+							toggleOverlay();
+						});
+					}
+				}
+			});
         });
 
         function showcopyleftyear() {
@@ -4347,14 +4662,14 @@
             });
         }
 
-        window.onload = () => {
+		window.onload = () => {
 			preloadImages();
 			const targetTextWrapper = document.getElementById('content-front');
-			// Inicializa a primeira face com os dados de INICIO
 			let socialMediaAuxHTML = socialMediaHTML;
-			//document.getElementById(`content-front`).classList.add('marginTop26dvh');
-            document.getElementById('content-front').innerHTML = `
-				<p style="color: #D6BA84; font-size: .7em;">Para utilizar todos os recursos, você precisa estar conectado à internet.</p>
+
+			// Monta o conteúdo inicial (INICIO) – isso será substituído se for 404
+			document.getElementById('content-front').innerHTML = `
+				${getOfflineMessage()}
 				<h2>${sectionsData.INICIO.title}</h2>
 				<article>
 					<h3>${sectionsData.INICIO.subtitle}</h3>
@@ -4362,34 +4677,79 @@
 					${socialMediaAuxHTML}
 					${footerHTML} 
 				</article>
-            `;
+			`;
 
 			const accordionContainer = targetTextWrapper.querySelector('.catalogo-accordion-container');
 			if (accordionContainer) buildAccordion(accordionContainer);
-			
-			// Após injetar o HTML, processa os embeds do Instagram que estiverem dentro dessa seção
-			const newContentDivInicio = document.getElementById('content-front');
-			if (newContentDivInicio && window.processInstagramEmbeds) {
-				window.processInstagramEmbeds(newContentDivInicio);
-			}
-			// Dentro de changeContent, após a injeção do HTML:
-			if (window.processFacebookEmbeds) {
-				window.processFacebookEmbeds(document.getElementById('content-front'));
-			}
-            showcopyleftyear();
-            document.getElementById('bg-front').style.backgroundImage = `url('${sectionsData.INICIO.image}')`;
-			//updateBackgroundContent('${sectionsData.INICIO.video');
+
+			if (window.processInstagramEmbeds) window.processInstagramEmbeds(document.getElementById('content-front'));
+			if (window.processFacebookEmbeds) window.processFacebookEmbeds(document.getElementById('content-front'));
+
+			showcopyleftyear();
+			document.getElementById('bg-front').style.backgroundImage = `url('${sectionsData.INICIO.image}')`;
 			updateBackgroundContent('INICIO','bg-front');
 
-			// Inicializa o carrossel no carregamento
+			// --- NOVA LÓGICA DE DETECÇÃO DE ERRO 404 ---
+			const params = new URLSearchParams(window.location.search);
+			const pathname = window.location.pathname;
+			const errorParam = params.get('error');
+			const sectionParam = params.get('section');
+
+			// Função para exibir a página de erro 404
+			function show404() {
+				if (sectionsData.ERRO_404) {
+					changeContent('ERRO_404', true, true);
+					// Remove o parâmetro error da URL (se existir) e limpa a URL
+					const cleanUrl = new URL(window.location);
+					cleanUrl.searchParams.delete('error');
+					cleanUrl.searchParams.delete('section');
+					history.replaceState({ section: 'ERRO_404' }, '', cleanUrl.toString());
+				}
+			}
+
+			// Caso 1: veio com error=404 (proveniente do Service Worker)
+			if (errorParam === '404') {
+				show404();
+				return;
+			}
+
+			// Caso 2: caminho não é a raiz nem index.html, e NÃO tem parâmetro section válido
+			const isValidPath = pathname === '/' || pathname === '/index.html' || pathname === '';
+			if (!isValidPath) {
+				// Se não tiver parâmetro section, ou se tiver mas a seção não existe
+				if (!sectionParam || !sectionsData[sectionParam]) {
+					show404();
+					return;
+				}
+			}
+
+			// Caso 3: tem parâmetro section, mas a seção não existe
+			if (sectionParam && !sectionsData[sectionParam]) {
+				show404();
+				return;
+			}
+
+			// --- Se chegou aqui, carrega a seção normalmente ---
+			const initialSection = sectionParam || 'INICIO';
+
+			if (initialSection !== 'INICIO') {
+				changeContent(initialSection, true, true);
+			} else {
+				// Atualiza a URL com section=INICIO (se não houver)
+				const url = new URL(window.location);
+				if (!url.searchParams.has('section')) {
+					url.searchParams.set('section', 'INICIO');
+					history.replaceState({ section: 'INICIO' }, '', url.toString());
+				}
+				// Não chama changeContent para evitar flip
+			}
+
+			// Inicializa carrossel, marca ícone ativo, etc.
 			initCarousels();
-
-			// Marca o ícone de início como ativo (se houver correspondência)
-            const initialLinks = document.querySelectorAll(`.nav-icons a[onclick*="'INICIO'"]`);
-            initialLinks.forEach(link => link.classList.add('nav-active'));
-
-            showcopyleftyear();
-        };
+			const initialLinks = document.querySelectorAll(`.nav-icons a[onclick*="'INICIO'"]`);
+			initialLinks.forEach(link => link.classList.add('nav-active'));
+			showcopyleftyear();
+		};
     </script>
 	<script type="text/javascript">
 		function sendToAnalytics02(userChoice,eventName,eventCategory) {
@@ -4409,33 +4769,33 @@
 			*/
 			if (e.target.tagName.toLowerCase()==='a') {
 				if (e.target.title) {
-					sendToAnalytics02(e.target.title,'Ícones acessados','Card Page - Offline');
+					sendToAnalytics02(e.target.title,'Ícones acessados','Card Page');
 					console.log('Title = ' + e.target.title + ' | Tag Name = ' + e.target.tagName);
 				}
 			}
 			if (e.target.tagName.toLowerCase()==='li') {
 				if (e.target.parentElement.tagName.toLowerCase()==='ul' && e.target.parentElement.classList.contains('overlay-list')) {
 					if (e.target.textContent) {
-						sendToAnalytics02(e.target.textContent,'Menu Completo','Card Page - Offline');
+						sendToAnalytics02(e.target.textContent,'Menu Completo','Card Page');
 						console.log('Title = ' + e.target.textContent + ' | Tag Name = ' + e.target.tagName);
 					}
 				}
 			}
 			if (e.target.parentElement.tagName.toLowerCase()==='a') {
 				if (e.target.parentElement.title) {
-					sendToAnalytics02(e.target.parentElement.title,'Ícones acessados','Card Page - Offline');
+					sendToAnalytics02(e.target.parentElement.title,'Ícones acessados','Card Page');
 					console.log('Title = ' + e.target.parentElement.title + ' | Tag Name = ' + e.target.parentElement.tagName);
 				}
 			}
 			if (e.target.parentElement.tagName.toLowerCase()==='div') {
 				if (e.target.parentElement.classList.contains('logo-link')) {
-					sendToAnalytics02('Logotipo','Logotipo','Card Page - Offline');
+					sendToAnalytics02('Logotipo','Logotipo','Card Page');
 					console.log('Title = Logotipo | Tag Name = ' + e.target.parentElement.tagName);
 				}
 			}
 			if (e.target.parentElement.parentElement.tagName.toLowerCase()==='a') {
 				if (e.target.parentElement.parentElement.title) {
-					sendToAnalytics02(e.target.parentElement.parentElement.title,'Ícones acessados','Card Page - Offline');
+					sendToAnalytics02(e.target.parentElement.parentElement.title,'Ícones acessados','Card Page');
 					console.log('Title = ' + e.target.parentElement.parentElement.title + ' | Tag Name = ' + e.target.parentElement.parentElement.tagName);
 				}
 			}
@@ -4605,7 +4965,7 @@
 					e.stopPropagation();
 					handleTooltipToggle();
 					// Registra no Analytics
-					sendToAnalytics02('Foto do perfil','Menus acessados','Card Page - Offline');
+					sendToAnalytics02('Foto do perfil','Menus acessados','Card Page');
 				});
 			});
 
@@ -4800,7 +5160,7 @@
 			viewer.style.display = "flex";
 			viewerImg.src = src;
 			captionText.innerHTML = alt || "Sem legenda"; // Usa o atributo ALT como legenda
-			sendToAnalytics02(viewerImg.src,'Carrossel','Card Page - Offline');
+			sendToAnalytics02(viewerImg.src,'Carrossel','Card Page');
 		}
 
 		// Fechar ao clicar no X
@@ -4826,7 +5186,7 @@
 		async function buttonNFCclicked() {
 			//console.log("NFC: Botão clicado!");
 			// Registra no Analytics
-			sendToAnalytics02('NFC','NFC - Clicado','Card Page - Offline');
+			sendToAnalytics02('NFC','NFC - Clicado','Card Page');
 
 			const nfcStatuses = document.querySelectorAll('.nfcStatus');
 			const updateStatus = (text) => {
@@ -4839,7 +5199,7 @@
 				//alert("Este navegador ou dispositivo não suporta a escrita de NFC via Web API.");
 				updateStatus("NFC não suportado aqui.");
 				// Registra no Analytics
-				sendToAnalytics02('NFC não suportado aqui','NFC - Clicado','Card Page - Offline');
+				sendToAnalytics02('NFC não suportado aqui','NFC - Clicado','Card Page');
 				return;
 			}
 
@@ -4860,7 +5220,7 @@
 				updateStatus("Sucesso! Tag gravada.");
 				//alert("Cartão físico programado com sucesso!");
 				// Registra no Analytics
-				sendToAnalytics02('Sucesso! Tag gravada','NFC - Clicado','Card Page - Offline');
+				sendToAnalytics02('Sucesso! Tag gravada','NFC - Clicado','Card Page');
 				
 				setTimeout(() => updateStatus(""), 5000);
 			} catch (error) {
@@ -4868,11 +5228,11 @@
 				if (error.name === "NotAllowedError") {
 					updateStatus("Permissão negada pelo usuário.");
 					// Registra no Analytics
-					sendToAnalytics02('Permissão negada pelo usuário','NFC - Clicado','Card Page - Offline');
+					sendToAnalytics02('Permissão negada pelo usuário','NFC - Clicado','Card Page');
 				} else {
 					updateStatus("Erro ao gravar. Tente novamente.");
 					// Registra no Analytics
-					sendToAnalytics02('Erro ao gravar','NFC - Clicado','Card Page - Offline');
+					sendToAnalytics02('Erro ao gravar','NFC - Clicado','Card Page');
 				}
 			}
 		}
@@ -5128,7 +5488,7 @@
 			// --- FUNÇÕES ORIGINAIS (não alterar) ---
 			function openOverlay() {
 				if (overlay) overlay.classList.add('active');
-				sendToAnalytics02('Formulário','Botão','Card Page - Offline');
+				sendToAnalytics02('Formulário','Botão','Card Page');
 				window.addEventListener('message', function(event) {
 					if (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
 						const idDoFormCarregado = event.data.id;
@@ -5512,7 +5872,7 @@
 					img.src = src;
 					img.alt = 'Ampliação';
 					contentDiv.appendChild(img);
-					sendToAnalytics02(img.src,'Galeria','Card Page - Offline');
+					sendToAnalytics02(img.src,'Galeria','Card Page');
 				} else if (type === 'video') {
 					const video = document.createElement('video');
 					video.controls = true;
@@ -5525,7 +5885,7 @@
 					source.type = 'video/mp4';
 					video.appendChild(source);
 					contentDiv.appendChild(video);
-					sendToAnalytics02(source.src,'Galeria','Card Page - Offline');
+					sendToAnalytics02(source.src,'Galeria','Card Page');
 				}
 				overlay.classList.add('active');
 			}

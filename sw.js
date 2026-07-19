@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dcard-gemima-mansoor-v02-16';
+var CACHE_NAME = 'dcard-gemima-mansoor-v02-17';
 var urlsToCache = [
 	'./',
 	'./index.html',
@@ -116,7 +116,21 @@ self.addEventListener('fetch', function(event) {
 			return fetch(event.request).then(function(response) {
 				//console.log('response.status = ' + response.status);
 				if (response.status === 404) {
-					return caches.match('./404.html');
+					// Retorna o index.html com parâmetro de erro
+					return caches.match('./index.html').then(function(indexResponse) {
+						if (indexResponse) {
+							// Cria uma nova resposta com o mesmo corpo, mas com a URL modificada
+							const url = new URL(event.request.url);
+							url.searchParams.set('error', '404');
+							return new Response(indexResponse.body, {
+								status: 200,
+								statusText: 'OK',
+								headers: indexResponse.headers
+							});
+						}
+						// Fallback: retorna 404.html se não tiver index em cache
+						return caches.match('./404.html');
+					});
 				}
 				//console.log('response 02 = ' + response);
 				return response
