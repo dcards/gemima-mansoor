@@ -4676,11 +4676,14 @@
 					return; // interrompe o carregamento normal
 				}
 			}
+			// Pré-carrega imagens (mantido)
 			preloadImages();
-			const targetTextWrapper = document.getElementById('content-front');
-			let socialMediaAuxHTML = socialMediaHTML;
 
-			// Monta o conteúdo inicial (INICIO) – isso será substituído se for 404
+			// Referência ao container de conteúdo da face frontal
+			const targetTextWrapper = document.getElementById('content-front');
+			const socialMediaAuxHTML = socialMediaHTML; // definido anteriormente
+
+			// Monta o conteúdo inicial (INICIO) – será substituído se houver 404
 			document.getElementById('content-front').innerHTML = `
 				${getOfflineMessage()}
 				<h2>${sectionsData.INICIO.title}</h2>
@@ -4692,51 +4695,68 @@
 				</article>
 			`;
 
+			// Constrói o accordion do catálogo, se existir
 			const accordionContainer = targetTextWrapper.querySelector('.catalogo-accordion-container');
 			if (accordionContainer) buildAccordion(accordionContainer);
 
+			// Processa embeds de Instagram e Facebook
 			if (window.processInstagramEmbeds) window.processInstagramEmbeds(document.getElementById('content-front'));
 			if (window.processFacebookEmbeds) window.processFacebookEmbeds(document.getElementById('content-front'));
 
+			// Exibe o ano no rodapé
 			showcopyleftyear();
+
+			// Define a imagem/vídeo de fundo da face frontal
 			document.getElementById('bg-front').style.backgroundImage = `url('${sectionsData.INICIO.image}')`;
-			updateBackgroundContent('INICIO','bg-front');
+			updateBackgroundContent('INICIO', 'bg-front');
 
 			// ============================================================
-			// LÓGICA DE DETECÇÃO DE ERRO 404 (CORRIGIDA)
+			// LÓGICA DE DETECÇÃO DE ERRO 404 – CORRIGIDA E ROBUSTECIDA
 			// ============================================================
 			const params = new URLSearchParams(window.location.search);
 			const pathname = window.location.pathname;
 			const errorParam = params.get('error');
 			const sectionParam = params.get('section');
 
-			// Função para exibir a página de erro 404
-			function show404() {
-				if (sectionsData.ERRO_404) {
-					changeContent('ERRO_404', true, true);
-					const cleanUrl = new URL(window.location);
-					cleanUrl.searchParams.delete('error');
-					cleanUrl.searchParams.delete('section');
-					history.replaceState({ section: 'ERRO_404' }, '', cleanUrl.toString());
-				}
+			// Garante que a seção ERRO_404 exista (fallback)
+			if (!sectionsData.ERRO_404) {
+				sectionsData.ERRO_404 = {
+					title: 'Página não encontrada',
+					subtitle: 'O conteúdo que você procura não está disponível.',
+					image: './imgs/gemima-m-mansoor-foto-16.jpeg',
+					content: `
+						<p><b>Volte para a página inicial.</b></p>
+						<p><a href="./">Clique aqui</a></p>
+					`
+				};
 			}
 
-			// Caso 1: veio com error=404 (proveniente do Service Worker) e NÃO é a raiz
-			if (errorParam === '404' && pathname !== '/' && pathname !== '/index.html') {
+			// Função para exibir a página de erro 404
+			function show404() {
+				changeContent('ERRO_404', true, true);
+				const cleanUrl = new URL(window.location);
+				cleanUrl.searchParams.delete('error');
+				cleanUrl.searchParams.delete('section');
+				history.replaceState({ section: 'ERRO_404' }, '', cleanUrl.toString());
+			}
+
+			// Caminhos considerados válidos (raiz do site)
+			const validPaths = ['/', '/index.html', '/gemima-mansoor/', '/gemima-mansoor/index.html', ''];
+			const isValidPath = validPaths.includes(pathname) || pathname === '/';
+
+			// Caso 1: parâmetro error=404 explícito
+			if (errorParam === '404') {
 				show404();
 				return;
 			}
 
-			// Caso 2: caminho não é a raiz nem index.html, e NÃO tem parâmetro section válido
-			const isValidPath = pathname === '/' || pathname === '/index.html' || pathname === '';
-			if (!isValidPath) {
-				if (!sectionParam || !sectionsData[sectionParam]) {
-					show404();
-					return;
-				}
+			// Caso 2: caminho não é raiz E não há parâmetro section válido
+			if (!isValidPath && !sectionParam) {
+				show404();
+				return;
 			}
 
-			// Caso 3: tem parâmetro section, mas a seção não existe
+			// Caso 3: parâmetro section existe, mas a seção não está definida
 			if (sectionParam && !sectionsData[sectionParam]) {
 				show404();
 				return;
@@ -4746,6 +4766,7 @@
 			const initialSection = sectionParam || 'INICIO';
 
 			if (initialSection !== 'INICIO') {
+				// Troca o conteúdo sem virar o cartão (skipFlip = true)
 				changeContent(initialSection, true, true);
 			} else {
 				// Atualiza a URL com section=INICIO (se não houver)
@@ -4754,10 +4775,12 @@
 					url.searchParams.set('section', 'INICIO');
 					history.replaceState({ section: 'INICIO' }, '', url.toString());
 				}
-				// Não chama changeContent para evitar flip
+				// Não chama changeContent para evitar flip desnecessário
 			}
 
-			// Inicializa carrossel, marca ícone ativo, etc.
+			// ============================================================
+			// Inicializa carrosséis, marca ícone ativo e outros
+			// ============================================================
 			initCarousels();
 			const initialLinks = document.querySelectorAll(`.nav-icons a[onclick*="'INICIO'"]`);
 			initialLinks.forEach(link => link.classList.add('nav-active'));

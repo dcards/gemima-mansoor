@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dcard-gemima-mansoor-v02-18';
+var CACHE_NAME = 'dcard-gemima-mansoor-v03-00';
 var urlsToCache = [
 	'./',
 	'./index.html',
@@ -106,20 +106,27 @@ self.addEventListener('activate', function(event) {
 });
 /* FETCH */
 self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request).then(function(response) {
-            if (response) {
-                return response;
-            }
-            return fetch(event.request).then(function(response) {
-                // Se for 404 e NÃO for a requisição da raiz, faz o fallback
-                if (response.status === 404 && event.request.url !== '/') {
-                    return caches.match('./404.html');
-                }
-                return response;
-            });
-        }).catch(function() {
-            return caches.match('./offline.html');
-        })
-    );
-});
+	const requestUrl = new URL(event.request.url);
+	const isRoot = requestUrl.pathname === '/' || requestUrl.pathname === '/gemima-mansoor/';
+  
+	event.respondWith(
+	  caches.match(event.request).then(function(response) {
+		if (response) return response;
+  
+		// Se for requisição para a raiz, tenta buscar index.html
+		if (isRoot) {
+		  return fetch('./index.html').catch(() => caches.match('./offline.html'));
+		}
+  
+		return fetch(event.request).then(function(response) {
+		  // Se for 404 e não for a raiz, serve 404.html
+		  if (response.status === 404 && !isRoot) {
+			return caches.match('./404.html') || response;
+		  }
+		  return response;
+		}).catch(function() {
+		  return caches.match('./offline.html');
+		});
+	  })
+	);
+  });
