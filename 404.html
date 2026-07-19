@@ -4361,11 +4361,15 @@
 				header.addEventListener('click', function(e) {
 					const parentItem = this.closest('.accordion-item');
 					const isOpen = parentItem.classList.contains('open');
+					/*
 					containerElement.querySelectorAll('.accordion-item').forEach(item => {
 						item.classList.remove('open');
 					});
+					*/
 					if (!isOpen) {
 						parentItem.classList.add('open');
+					} else {
+						parentItem.classList.remove('open');
 					}
 				});
 			});

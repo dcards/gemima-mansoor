@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dcard-gemima-mansoor-v03-00';
+var CACHE_NAME = 'dcard-gemima-mansoor-v03-01';
 var urlsToCache = [
 	'./',
 	'./index.html',
