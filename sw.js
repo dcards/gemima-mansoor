@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dcard-gemima-mansoor-v03-04';
+var CACHE_NAME = 'dcard-gemima-mansoor-v03-06';
 var urlsToCache = [
 	'./',
 	'./index.html',
@@ -113,13 +113,17 @@ self.addEventListener('fetch', function(event) {
 	  caches.match(event.request).then(function(response) {
 		if (response) return response;
   
-		// Se for requisição para a raiz, tenta buscar index.html
+		// Se for requisição para a raiz, tenta buscar do cache primeiro
 		if (isRoot) {
-		  return fetch('./index.html').catch(() => caches.match('./offline.html'));
+		  // Tenta buscar do cache o index.html
+		  return caches.match('./index.html').then(function(cached) {
+			if (cached) return cached;
+			// Se não estiver em cache, tenta fetch da rede
+			return fetch('./index.html').catch(() => caches.match('./offline.html'));
+		  });
 		}
   
 		return fetch(event.request).then(function(response) {
-		  // Se for 404 e não for a raiz, serve 404.html
 		  if (response.status === 404 && !isRoot) {
 			return caches.match('./404.html') || response;
 		  }

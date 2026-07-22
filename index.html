@@ -3348,9 +3348,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		
 	<script>
+		/*
 		if (navigator.onLine === false) {
 			location.replace("./offline.html");
 		}
+		*/
 	</script>
 </head>
 <body>
@@ -4545,7 +4547,11 @@
 			} else {
 				const urlParams = new URLSearchParams(window.location.search);
 				const urlSection = urlParams.get('section');
-				section = (urlSection && sectionsData[urlSection]) ? urlSection : 'INICIO';
+				if (urlSection) {
+					section = sectionsData[urlSection] ? urlSection : 'ERRO_404';
+				} else {
+					section = 'INICIO';
+				}
 			}
 
 			if (!sectionsData[section]) {
@@ -4621,7 +4627,10 @@
 
 			const params = new URLSearchParams(window.location.search);
 			const sectionParam = params.get('section');
-			const initialSection = (sectionParam && sectionsData[sectionParam]) ? sectionParam : 'INICIO';
+			let initialSection = 'INICIO';
+			if (sectionParam) {
+				initialSection = sectionsData[sectionParam] ? sectionParam : 'ERRO_404';
+			}
 
 			const frontContent = document.getElementById('content-front');
 			frontContent.innerHTML = `
