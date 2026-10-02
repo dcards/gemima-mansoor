@@ -1,4 +1,4 @@
-var CACHE_NAME = 'dcard-gemima-mansoor-v03-11';
+var CACHE_NAME = 'dcard-gemima-mansoor-v03-12';
 var urlsToCache = [
 	'./',
 	'./index.html',
@@ -60,7 +60,8 @@ var urlsToCache = [
 	'./imgs/gemima-m-mansoor-foto-15.jpeg',
 	'./imgs/gemima-m-mansoor-foto-16.jpeg',
 	'./imgs/gemima-m-mansoor-foto-background-01.jpeg',
-	'./imgs/gemima-m-mansoor-foto-perfil-02.jpeg'
+	'./imgs/gemima-m-mansoor-foto-perfil-02.jpeg',
+	'./imgs/logo-cartao-digital-puro-v01-04.png'
 ];
 self.addEventListener('install', (event) => {
 	event.waitUntil( // Ensures the service worker doesn't finish installing until all files are cached
